@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-3xl">RefleX App</h1>
-      <p>Welcome</p>
+      <p>Welcome User</p>
     </div>
   );
 }
