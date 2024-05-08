@@ -1,10 +1,12 @@
 import "./App.css";
+import "./style/style.css";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl">RefleX App</h1>
-      <p>Welcome User</p>
+    <div className="App text-white bg-[#960E20]">
+      <h1>RefleX Emergency App</h1>
+      {/* <ResetPassword /> */}
     </div>
   );
 }
