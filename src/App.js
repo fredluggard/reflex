@@ -1,10 +1,10 @@
 import "./App.css";
+import HomepageHotlines from "./components/homepageHotlines";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl">RefleX App</h1>
-      <p>Welcome User</p>
+      <HomepageHotlines />
     </div>
   );
 }
