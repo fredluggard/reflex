@@ -7,6 +7,7 @@ import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage />,
+  },
+  {
+    path: "/resetpassword",
+    element: <ResetPassword />,
   },
 ]);
 
