@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function ResetPassword() {
   const [getCode, SetGetCode] = useState("one");
   return (
-    <div className="m-4 py-6">
+    <div className="p-4 py-6 bg-[#960E20]">
       {getCode === "one" ? (
         <div className="h-screen">
           <div className="flex flex-col justify-start text-white">
@@ -162,7 +162,7 @@ function ResetPassword() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col h-screen justify-between">
+        <div className="flex flex-col h-screen justify-between text-white">
           <div className="flex flex-col justify-center items-center">
             <FaRegCircleCheck className="h-[150px] w-[150px] my-6" />
             <h1 className="font-bold text-2xl">Password Reset Successful</h1>
@@ -172,7 +172,7 @@ function ResetPassword() {
             </p>
           </div>
           <Link to="/login">
-            <button className="h-10 text-md px-2 w-full rounded-2xl mt-4 mb-2 bg-[#6B6B6B] border-1 border-white">
+            <button className="h-10 text-md px-2 w-full rounded-2xl mt-4 mb-2 bg-[#6B6B6B] text-white border-1 border-white">
               sign in
             </button>
           </Link>
