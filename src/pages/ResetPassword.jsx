@@ -2,9 +2,28 @@ import React, { useState } from "react";
 import "../style/style.css";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { FaRegEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 function ResetPassword() {
   const [getCode, SetGetCode] = useState("one");
+  // const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleTogglePassword2 = () => {
+    setShowPassword2(!showPassword2);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="p-4 py-6 bg-[#960E20]">
       {getCode === "one" ? (
@@ -130,27 +149,46 @@ function ResetPassword() {
           <div>
             <form
               className="flex flex-col justify-start text-white"
-              action=""
-              method="post"
+              onSubmit={handleSubmit}
             >
               <label className="my-1 text-md" htmlFor="password">
                 Password
               </label>
-              <input
-                className="h-10 text-md px-3 outline-white w-full text-black rounded-2xl border-2 border-white"
-                type="password"
-                id="password"
-                name="password"
-              />
+              <div className="relative flex">
+                <input
+                  className="h-10 text-md px-3 outline-white w-full text-black rounded-2xl border-2 border-white"
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  className="text-black absolute right-5 top-3"
+                  type="button"
+                  onClick={handleTogglePassword}
+                >
+                  {showPassword ? <FaRegEye /> : <FaEyeSlash />}
+                </button>
+              </div>
               <label className="my-1 text-md" htmlFor="password1">
                 Password Confirmation
               </label>
-              <input
-                className="h-10 text-md px-3 outline-white w-full text-black rounded-2xl border-2 border-white"
-                type="password"
-                id="password1"
-                name="password1"
-              />
+              <div className="relative flex">
+                <input
+                  className="h-10 text-md px-3 outline-white w-full text-black rounded-2xl border-2 border-white"
+                  type={showPassword2 ? "text" : "password"}
+                  id="password"
+                  value={password2}
+                  onChange={(e) => setPassword2(e.target.value)}
+                />
+                <button
+                  className="text-black absolute right-5 top-3"
+                  type="button"
+                  onClick={handleTogglePassword2}
+                >
+                  {showPassword2 ? <FaRegEye /> : <FaEyeSlash />}
+                </button>
+              </div>
 
               <input
                 className="h-10 text-md px-2 w-full rounded-2xl mt-4 mb-2 bg-[#6B6B6B] border-1 border-white"
