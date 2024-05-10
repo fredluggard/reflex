@@ -4,6 +4,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import NavBar from "../components/NavBar";
 
 function ResetPassword() {
   const [getCode, SetGetCode] = useState("one");
@@ -26,6 +27,7 @@ function ResetPassword() {
   };
   return (
     <div className="p-4 py-6 bg-[#960E20]">
+      <NavBar />
       {getCode === "one" ? (
         <div className="h-screen">
           <div className="flex flex-col justify-start text-white">
