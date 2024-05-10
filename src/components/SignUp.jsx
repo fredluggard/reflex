@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { ImMail4 } from "react-icons/im";
+import { FaEyeSlash } from "react-icons/fa6";
 
 function SignUp() {
   const [render, setRender] = useState("one");
@@ -38,20 +41,20 @@ function SignUp() {
           <div className="flex items-center justify-center h-screen">
           <div>
           <h1 className="text-3xl font-bold mt-8">REFLEX</h1>
-          <button className="flex items-center bg-[#9E454D] text-white font-bold py-2 px-4 rounded mt-8">
+          <button className="flex items-center bg-[#9E454D] text-white font-bold py-2 px-4 rounded-3xl w-full mt-8">
             <FaFacebook />
             <span className="text-sm">Sign in with Facebook</span>
           </button>
-          <button className="flex items-center bg-red-600 text-white font-bold py-2 px-4 rounded mt-4">
-            <i className="fab fa-google mr-2"></i>
+          <button className="flex items-center bg-[#9E454D] text-white font-bold py-2 px-4 rounded-3xl w-full mt-4">
+          <FcGoogle />
             <span className="text-sm">Sign in with Google</span>
           </button>
           <p className="mt-4 text-sm">or sign in via email</p>
           <button
-            className="flex items-center bg-gray-600 text-white font-bold py-2 px-4 rounded mt-2"
+            className="flex items-center bg-[#9E454D] text-white font-bold py-2 px-4 rounded-3xl w-full mt-2"
             onClick={() => setRender("three")}
           >
-            <i className="far fa-envelope mr-2"></i>
+            <ImMail4 />
             <span className="text-sm">Sign up with Email</span>
           </button>
           <p className="mt-4 text-sm">
@@ -69,12 +72,12 @@ function SignUp() {
           <input
             type="email"
             placeholder="Email"
-            className="bg-gray-800 text-white rounded px-4 py-2 w-64 mb-4"
+            className="bg-[#FFFFFF] text-white rounded-3xl w-full px-4 py-2 w-64 mb-4"
           />
           <input
             type="text"
             placeholder="Username"
-            className="bg-gray-800 text-white rounded px-4 py-2 w-64 mb-4"
+            className="bg-[#FFFFFF] text-white rounded-3xl w-full px-4 py-2 w-64 mb-4"
           />
           <p className="text-sm mb-4">
             Your username will be public and you will not be able to change it.
@@ -83,23 +86,23 @@ function SignUp() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="bg-gray-800 text-white rounded px-4 py-2 w-full"
+              className="bg-[#FFFFFF] text-white rounded-3xl w-full px-4 py-2 w-64  mb-4"
             />
             <span
               className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
               onClick={togglePasswordVisibility}
             >
               {showPassword ? (
-                <i className="far fa-eye-slash"></i>
+                <FaEyeSlash />
               ) : (
-                <i className="far fa-eye"></i>
+                <FaEyeSlash />
               )}
             </span>
           </div>
           <p className="text-sm mb-4">
             Combine upper and lowercase letters and numbers.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+          <button className="bg-[#6B6B6B] text-white font-bold py-2 px-4 rounded-3xl w-full mb-4">
             <Link to="/login">Sign Up</Link>
           </button>
           <p className="text-sm mb-4">
