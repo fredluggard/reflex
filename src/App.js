@@ -1,7 +1,6 @@
 import "./App.css";
 import "./style/style.css";
 import ResetPassword from "./pages/ResetPassword";
-import NavBar from "./components/NavBar";
 
 function App() {
   return (
