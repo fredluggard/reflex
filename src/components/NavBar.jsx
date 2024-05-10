@@ -10,7 +10,7 @@ function NavBar() {
 
   return (
     <div>
-      <header className='px-6 pt-24 pb-4 border-b border-white md:px-20 py-4'>
+      <header className='pl-6 pr-12 pt-8 pb-2 border-b border-white md:px-20 py-4'>
         
         <nav className='flex items-center justify-between '>
             <h1 className='text-4xl font-semibold'>RefleX</h1>
@@ -32,7 +32,7 @@ function NavBar() {
                 </li>
             </ul>
             <NavLink to= "/userprofile">
-              <img src="/images/user-profile-pic.png" alt="user-profile-pic" className='flex self-end'/>
+              <img src="/images/user-profile-pic.png" width="40" height="40" alt="user-profile-pic" className='flex self-end'/>
             </NavLink>
         </nav>
       </header>
