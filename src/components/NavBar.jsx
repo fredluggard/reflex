@@ -32,7 +32,7 @@ function NavBar() {
                 </li>
             </ul>
             <NavLink to= "/userprofile">
-              <img src="/public/images/user-profile-pic.png" alt="user-profile-pic" className='flex self-end'/>
+              <img src="/images/user-profile-pic.png" alt="user-profile-pic" className='flex self-end'/>
             </NavLink>
         </nav>
       </header>
