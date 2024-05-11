@@ -16,21 +16,18 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <div className="flex justify-center items-center">
       {render === "one" ? (
-        <div className="flex flex-col items-center justify-between relative h-screen bg-[#FFFFFF] text-[#971B22] px-4">
+        <div className="flex flex-col items-center justify-between relative h-[90vh] bg-[#FFFFFF] text-[#971B22] px-4 md:">
           <div className="flex flex-col items-center justify-center relative top-40">
             <img src="/images/logo.png" alt="logo" />
             <p className="text-sm font-bold my-6 text-center">
               Welcome to fast, affordable emergency medical help across Enugu
             </p>
           </div>
-          <div
-            className="w-full flex flex-col justify-center items-center
-          "
-          >
+          <div className="w-full flex flex-col justify-center items-center">
             <button
-              className="bg-[#971B22] border-2 border-white text-white font-bold py-2 px-4 rounded-3xl w-full my-4"
+              className="bg-[#971B22] border-2 border-white text-white font-bold py-2 px-4 rounded-3xl w-full md:w-[50%] my-4"
               onClick={() => setRender("two")}
             >
               sign up
@@ -55,8 +52,10 @@ function SignUp() {
           </p>
         </div>
       ) : render === "two" ? (
-        <div className="relative px-4 h-screen bg-[#FFFFFF]">
-          <p className="py-4 text-2xl text-[#971B22] font-bold">Sign Up</p>
+        <div className="relative px-4 h-[90vh] bg-[#FFFFFF]">
+          <p className="py-4 text-2xl text-[#971B22] font-bold relative right-[350px] top-10">
+            Sign Up
+          </p>
           <div className="flex flex-col items-center justify-center relative top-12">
             <img src="/images/logo.png" alt="logo" />
             <button className="flex justify-center items-center gap-2 bg-[#971B22] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8">
@@ -82,7 +81,10 @@ function SignUp() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center bg-[#FFFFFF] p-4 h-screen">
+        <div className="flex flex-col items-center justify-center bg-[#FFFFFF] p-4 h-[90vh]">
+          <h1 className="py-4 text-2xl mb-4 text-[#971B22] font-semibold">
+            Sign up with Email
+          </h1>
           <input
             className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
             type="email"
@@ -95,7 +97,7 @@ function SignUp() {
             placeholder="Username"
             className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
           />
-          <p className="text-sm mb-4 px-3">
+          <p className="text-sm mb-4 px-3 text-[#971B22]">
             Your username will be public and you will not be able to change it.
           </p>
           <div className="flex w-full relative mb-1">
@@ -119,12 +121,15 @@ function SignUp() {
               Sign Up
             </button>
           </Link>
-          <Link
-            className="text-sm mb-4 text-[#971B22] w-full text-end opacity-70"
-            to=""
-          >
-            Terms of Service
-          </Link>
+          <p className="text-[#971B22]">
+            By joining, you agree to Reflex's{" "}
+            <Link
+              className="text-sm mb-4 text-red-500 w-full text-end opacity-70"
+              to=""
+            >
+              Terms of Service
+            </Link>
+          </p>
         </div>
       )}
     </div>
