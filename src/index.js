@@ -9,6 +9,7 @@ import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
 import ProfilePage from "./pages/ProfilePage";
+import OtherHotlines from "./components/otherHotlines";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/userprofile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/otherhotlines",
+    element: <OtherHotlines />,
   },
 ]);
 
