@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import NavBar from "../components/NavBar";
 
 function SigninPage() {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ function SigninPage() {
   };
   return (
     <div className="relative p-4 pt-10 h-screen text-white py-6 bg-[#960E20]">
+      <NavBar />
       <div className="flex flex-col justify-center items-center relative top-4">
         <h1 className="text-5xl font-extrabold">RefleX</h1>
         <h2 className="text-xl font-semibold mt-4 mb-1">Welcome back</h2>
