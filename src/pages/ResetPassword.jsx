@@ -27,7 +27,9 @@ function ResetPassword() {
   };
   return (
     <div className="p-4 py-6 bg-[#960E20]">
-      <NavBar />
+      <nav className="hidden md:block">
+        <NavBar />
+      </nav>
       {getCode === "one" ? (
         <div className="h-screen">
           <div className="flex flex-col justify-start text-white">
@@ -211,11 +213,10 @@ function ResetPassword() {
               account with new password and email address
             </p>
           </div>
-          <Link to="/login">
-            <button className="h-10 text-md px-2 w-full rounded-2xl mt-4 mb-2 bg-[#6B6B6B] text-white border-1 border-white">
-              sign in
-            </button>
-          </Link>
+
+          <button className="h-10 text-md px-2 w-full rounded-2xl bg-[#6B6B6B] text-white border-1 border-white">
+            <Link to="/login">sign in</Link>
+          </button>
         </div>
       )}
     </div>
