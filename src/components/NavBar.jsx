@@ -6,9 +6,9 @@ import { FaAngleDown } from "react-icons/fa";
 function NavBar() {
   return (
     <div>
-      <header className="px-6 pt-24 pb-4 border-b text-white border-white md:px-20 py-4">
-        <nav className="flex items-center justify-between ">
-          <h1 className="text-4xl font-semibold">RefleX</h1>
+      <header className="px-2 py-2 border-b text-white bg-[#971B22] border-white">
+        <nav className="flex items-center justify-evenly">
+          <img src="/images/nav-logo.png" alt="logo" />
           <ul className="hidden md:flex space-x-20 font-light">
             <li>
               <NavLink to="/">Home</NavLink>
@@ -38,7 +38,7 @@ function NavBar() {
             <img
               src="/images/user-profile-pic.png"
               alt="user-profile-pic"
-              className="flex self-end"
+              className="flex self-end w-10 h-10"
             />
           </NavLink>
         </nav>
