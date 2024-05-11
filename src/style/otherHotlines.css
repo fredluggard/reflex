@@ -1,0 +1,73 @@
+.hp-hotlines{
+    width: 280px;
+    height: 96px;
+    display: flex;
+    justify-content: space-around;
+}
+.ambulance{
+    width:77px;
+    height: 96px;
+    font-size: 12px;
+    font-weight: 400;
+   
+}
+.ambulance p{
+    width: 77px;
+    height: 14px;
+}
+
+.img-div{
+    width: 100%;
+    height: 77px;
+    border: 3px solid red;
+    border-radius: 360px;
+    
+}
+
+.plus-icon{
+    width: 77px;
+    height: 53px;
+    background-color:blue;
+    border: none;
+    border-radius:36px 0px 0px 36px ;
+    position: relative;
+    left: 255px;
+    top: -77px;
+}
+
+.other-hotlines{
+width: 327px;
+height: 548px;
+font-size: 12px;
+font-weight: 400;
+}
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.frsc-div{
+    width: 122.47px;
+    height: 148.67px;
+}
+.sss-div{
+    width: 122.47px;
+    height: 167.67px;
+}
+.ncc-div{
+    width: 136px;
+    height: 167.67px;
+}
+.ndlea-div{
+    width: 122.47px;
+    height: 148.67px;
+}
+.eswama-div{
+    width: 122.47px;
+    height: 148.67px;
+}
+.erAfrica-div{
+    width: 129px;
+    height: 167.67px;
+}
