@@ -30,7 +30,7 @@ function ResetPassword() {
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="flex justify-center items-center h-[80vh] p-4 py-6 bg-[#FFFFFF]">
+      <div className="flex justify-center items-center h-[80vh] p-4 py-6 bg-mobile-bg">
         {getCode === "one" ? (
           <div className="md:w-[30%]">
             <div className="flex flex-col justify-start text-[#971B22]">
@@ -72,7 +72,7 @@ function ResetPassword() {
             </div>
           </div>
         ) : getCode === "two" ? (
-          <div className="md:w-[30%] text-[#971B22] bg-[#FFFFFF]">
+          <div className="md:w-[30%] text-[#971B22]">
             <div className="flex flex-col justify-start">
               <h1 className="font-bold text-2xl">Forgot Password?</h1>
               <p className="text-sm my-6">
@@ -143,7 +143,7 @@ function ResetPassword() {
             </div>
           </div>
         ) : getCode === "three" ? (
-          <div className="w-full md:w-[30%] text-[#971B22] bg-[#FFFFFF]">
+          <div className="w-full md:w-[30%] text-[#971B22]">
             <div className="flex flex-col justify-start">
               <h1 className="font-bold text-2xl">Reset Password</h1>
               <p className="text-sm my-6">Enter your new password to proceed</p>
@@ -204,7 +204,7 @@ function ResetPassword() {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col md:w-[30%] justify-around bg-[#FFFFFF] text-[#971B22]">
+          <div className="flex flex-col md:w-[30%] justify-around text-[#971B22]">
             <div className="flex flex-col justify-center items-center">
               <FaRegCircleCheck className="h-[150px] w-[150px] my-6" />
               <h1 className="font-bold text-center text-2xl">
