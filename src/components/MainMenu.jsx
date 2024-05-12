@@ -2,33 +2,52 @@ import React, { useState} from 'react';
 import {FaHome, FaMapMarkerAlt, FaPhoneAlt, FaBook} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MainMenu = () => {
-    const [menu, setMenu] = useState(false);
-    const handleClick = () => setMenu(!menu);
+function MainMenu() {
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = (isActive) =>  {
+        setIsActive(isActive);
+    };
   
     return (
-        <div className='md:fixed rounded-xl w-full h-1 flex text-sm justify-between items-center px-20 pt-10 pb-10 bg-[#b91c1c] text-black font-light'>
-{/*container for the icons*/}
-            <nav className=''> 
-                <ul className='flex justify-center  gap-10'>
-                    <li>
-                        <Link to = "/"><FaHome size={'15px'} className='mx-2'/> <span>Home</span> </Link>
+    <div>
+         <div className='fixed rounded-xl w-full h-1 flex text-sm justify-evenly items-center px-5 py-10 bg-white text-black font-light'>
+            
+            {/*container for the icons*/}
+            <nav> 
+                <ul className ='flex justify-center gap-10' >
+                    <li className=''>
+                        <Link to = "#" onClick={() => handleClick("Home")} 
+                        className={isActive === "Home" ? "text-[#960E20]" : ""}> 
+                        <FaHome size={'25px'} className='mx-2' /> <span> Home </span> 
+                        </Link>
                     </li>
 
                     <li>
-                        <Link to ="/"> <FaMapMarkerAlt size={'15px'} className='mx-5' /> <span>Location</span> </Link>
+                        <Link to = "#" onClick={() => handleClick("Location")} 
+                        className={isActive === "Location" ? "text-[#960E20]" : ""}>
+                        <FaMapMarkerAlt size={'25px'} className='mx-3' /> <span>Location</span>
+                        </Link>
                     </li>
 
                     <li>
-                        <Link to ="/" > <FaPhoneAlt size={'15px'} className='mx-2' /> <span>Call</span> </Link>
+                        <Link to = "#" onClick={() => handleClick("Call")} 
+                        className={isActive === "Call" ? "text-[#960E20]" : ""}> 
+                        <FaPhoneAlt size={'25px'} className='mx-0.2' /> <span>Call</span> 
+                        </Link>
                     </li>
 
                     <li>
-                        <Link to = "/"> <FaBook size={'15px'} className='mx-6' /> <span>Resource</span> </Link>
+                        <Link to = "#" onClick={() => handleClick("Resource")} 
+                        className={isActive === "Resource" ? "text-[#960E20]" : ""}> 
+                        <FaBook size={'25px'} className='mx-4' /> <span>Resource</span> 
+                        </Link>
                     </li>
                 </ul>
             </nav>
         </div>
+    </div>
+       
         
         )
 };
