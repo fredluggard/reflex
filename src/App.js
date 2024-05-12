@@ -4,7 +4,7 @@ import SignUp from "./components/SignUp";
 
 function App() {
   return (
-    <div className="App text-white bg-[#960E20]">
+    <div className="App text-[#971B22] bg-[#FFFFFF]">
       <div className="bg-mobile-bg">
         <SignUp />
       </div>
