@@ -18,7 +18,7 @@ function SignUp() {
   return (
     <div className="flex justify-center items-center">
       {render === "one" ? (
-        <div className="flex flex-col items-center justify-between relative h-[90vh] bg-[#FFFFFF] text-[#971B22] px-4 md:">
+        <div className="flex flex-col items-center justify-between relative h-[90vh] text-[#971B22] px-4 md:">
           <div className="flex flex-col items-center justify-center relative top-40">
             <img src="/images/logo.png" alt="logo" />
             <p className="text-sm font-bold my-6 text-center">
@@ -52,7 +52,7 @@ function SignUp() {
           </p>
         </div>
       ) : render === "two" ? (
-        <div className="relative px-4 h-[90vh] bg-[#FFFFFF]">
+        <div className="relative px-4 h-[90vh]">
           <p className="py-4 text-2xl text-[#971B22] font-bold relative right-[350px] top-10">
             Sign Up
           </p>
@@ -81,7 +81,7 @@ function SignUp() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center bg-[#FFFFFF] p-4 h-[90vh]">
+        <div className="flex flex-col items-center justify-center p-4 h-[90vh]">
           <h1 className="py-4 text-2xl mb-4 text-[#971B22] font-semibold">
             Sign up with Email
           </h1>

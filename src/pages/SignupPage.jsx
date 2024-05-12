@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 
 function SignupPage() {
   return (
-    <div className="h-screen bg-[#FFFFFF]">
+    <div className="h-screen bg-mobile-bg">
       <nav className="hidden md:block">
         <NavBar />
       </nav>
