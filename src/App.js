@@ -1,6 +1,8 @@
 import "./App.css";
 import "./style/style.css";
+import "./components/SignUp"
 import SignUp from "./components/SignUp";
+
 
 function App() {
   return (
