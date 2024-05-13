@@ -1,7 +1,6 @@
 import React from "react";
 import "../style/style.css";
 import { NavLink } from "react-router-dom";
-import { FaAngleDown } from "react-icons/fa";
 
 function NavBar() {
   return (
@@ -13,33 +12,43 @@ function NavBar() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-              <NavLink to="/location" className="flex items-center">
-                Location <FaAngleDown />{" "}
+            <li className="text-gray-900">
+              <NavLink to="/serviceprovider" className="flex items-center">
+                Service provider
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/contacts" className="flex items-center">
-                Contacts <FaAngleDown />{" "}
-              </NavLink>
-            </li>
-            <li>
+            <li className="text-gray-900">
               <NavLink to="/resources" className="flex items-center">
-                Resources <FaAngleDown />{" "}
+                Information resources
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/hotlines" className="flex items-center">
-                Hotlines <FaAngleDown />{" "}
+            <li className="text-gray-900">
+              <NavLink to="/tracking" className="flex items-center">
+                Realtime tracking
               </NavLink>
             </li>
           </ul>
-          <NavLink to="/userprofile">
-            <img
+          <div className="flex">
+            <ul className="flex space-x-10">
+              <li className="text-gray-900 border border-red-800 px-6 py-2 rounded-3xl">
+                <NavLink to="/login">
+                Log in
+                </NavLink>
+              </li>
+              <li className="bg-red-800 px-4 py-2 rounded-3xl">
+                <NavLink to="/signup">
+                Sign up
+                </NavLink>
+              </li>
+            </ul>
+            {/*<NavLink to="/userprofile">
+              <img
               src="/images/user-profile-pic.png"
               alt="user-profile-pic"
-              className="flex self-end w-10 h-10"
-            />
+              className="flex self-end"
+              />
+            </NavLink>*/}
+          </div>
           </NavLink>
         </nav>
       </header>
