@@ -1,12 +1,11 @@
 import "./App.css";
 import "./style/style.css";
-import "./components/SignUp"
 import SignUp from "./components/SignUp";
 
 
 function App() {
   return (
-    <div className="App text-[#971B22] bg-[#FFFFFF]">
+    <div className="App">
       <div className="bg-mobile-bg">
         <SignUp />
       </div>
