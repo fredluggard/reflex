@@ -30,7 +30,7 @@ function ResetPassword() {
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="flex justify-center items-center h-[80vh] p-4 py-6 bg-mobile-bg">
+      <div className="flex justify-center items-center h-[100vh] p-4 py-6 bg-mobile-bg">
         {getCode === "one" ? (
           <div className="md:w-[30%]">
             <div className="flex flex-col justify-start text-[#971B22]">
