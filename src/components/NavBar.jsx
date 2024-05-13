@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <div>
-      <header className="px-6 pt-24 pb-4 border-b text-white border-white md:px-20 py-4">
-        <nav className="flex items-center justify-between text-lg ">
-          <img src="/images/logo.png" width="100" alt="" />
-          <ul className="hidden md:flex space-x-20">
-            <li className="text-red-600">
+      <header className="px-2 py-2 border-b text-white bg-[#971B22] border-white">
+        <nav className="flex items-center justify-evenly">
+          <img src="/images/nav-logo.png" alt="logo" />
+          <ul className="hidden md:flex space-x-20 font-light">
+            <li>
               <NavLink to="/">Home</NavLink>
             </li>
             <li className="text-gray-900">
@@ -49,6 +49,7 @@ function NavBar() {
               />
             </NavLink>*/}
           </div>
+          </NavLink>
         </nav>
       </header>
     </div>
