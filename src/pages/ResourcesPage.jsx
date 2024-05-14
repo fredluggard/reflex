@@ -1,18 +1,17 @@
 import React from "react";
-import SignUp from "../components/SignUp";
 import NavBar from "../components/NavBar";
 
-function SignupPage() {
+function ResourcesPage() {
   return (
-    <div className="h-screen">
+    <div>
       <nav className="hidden md:block">
         <NavBar />
       </nav>
       <div className="bg-mobile-bg">
-        <SignUp />
+        <h1>Resources Page</h1>
       </div>
     </div>
   );
 }
 
-export default SignupPage;
+export default ResourcesPage;

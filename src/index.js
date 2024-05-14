@@ -11,6 +11,7 @@ import ResetPassword from "./pages/ResetPassword";
 import ProfilePage from "./pages/ProfilePage";
 import OtherHotlines from "./components/otherHotlines";
 import HomePage from "./pages/HomePage";
+import ResourcesPage from "./pages/ResourcesPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <HomePage />,
+  },
+  {
+    path: "/resources",
+    element: <ResourcesPage />,
   },
   {
     path: "/login",
