@@ -10,7 +10,9 @@ function App() {
       <NavBar />
       <div className="bg-mobile-bg">
         <SignUp />
-        <ImageCarousel />
+        <div className="hidden w-[50vw] md:block">
+          <ImageCarousel />
+        </div>
       </div>
     </div>
   );
