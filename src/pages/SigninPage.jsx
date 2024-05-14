@@ -1,28 +1,45 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import NavBar from "../components/NavBar";
+import axios from "axios";
 
 function SigninPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://reflex1-2.onrender.com/api/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      console.log("Login Successful:", response.data);
+      // history.push("/");
+    } catch (error) {
+      console.error("Login failed:", error.message);
+    }
   };
+
   return (
     <div className="bg-mobile-bg bg-cover bg-center">
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="relative flex flex-col justify-center items-center p-4 pt-10 h-[90vh] text-[#971B22] py-6 bg-mobile-bg">
+      <div className="relative flex flex-col justify-center items-center p-4 pt-10 h-[100vh] text-[#971B22] py-6 bg-mobile-bg">
         <div className="flex flex-col justify-center items-center relative top-4">
           <h2 className="text-2xl font-bold mt-4 mb-1">Welcome back</h2>
           <p className="text-md my-2">Sign in to continue</p>
@@ -37,6 +54,7 @@ function SigninPage() {
             type="email"
             id="email"
             placeholder="Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -50,6 +68,7 @@ function SigninPage() {
               type={showPassword ? "text" : "password"}
               id="password"
               placeholder="Password"
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

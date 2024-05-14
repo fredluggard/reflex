@@ -5,14 +5,33 @@ import { FcGoogle } from "react-icons/fc";
 import { ImMail4 } from "react-icons/im";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa";
+import axios from "axios";
 
 function SignUp() {
   const [render, setRender] = useState("one");
-
   const [showPassword, setShowPassword] = useState(false);
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
+
+  const createUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://reflex1-2.onrender.com/api/user/signup",
+        {
+          email: email,
+          userName: userName,
+          password: password,
+        }
+      );
+      console.log("Created Successfully:", response.data);
+    } catch (error) {
+      console.error("Failed to create user:", error.message);
+    }
   };
 
   return (
@@ -81,55 +100,66 @@ function SignUp() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center p-4 h-[90vh]">
+        <div className="flex flex-col items-center justify-center p-4 h-[100vh]">
           <h1 className="py-4 text-2xl mb-4 text-[#971B22] font-semibold">
             Sign up with Email
           </h1>
-          <input
-            className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
-          />
-          <p className="text-sm mb-4 px-3 text-[#971B22]">
-            Your username will be public and you will not be able to change it.
-          </p>
-          <div className="flex w-full relative mb-1">
+          <form onSubmit={createUser} className="flex flex-col w-full">
             <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              onChange={(e) => setUserName(e.target.value)}
               className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
             />
-            <span
-              className="absolute text-[#971B22] text-xl right-0 top-4 flex items-center pr-3 cursor-pointer"
-              onClick={togglePasswordVisibility}
+            <p className="text-sm mb-4 px-3 text-[#971B22]">
+              Your username will be public and you will not be able to change
+              it.
+            </p>
+            <div className="flex w-full relative mb-1">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
+              />
+              <span
+                className="absolute text-[#971B22] text-xl right-0 top-4 flex items-center pr-3 cursor-pointer"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <FaRegEye /> : <FaEyeSlash />}
+              </span>
+            </div>
+            <p className="text-sm text-[#971B22] mb-4">
+              Combine upper and lowercase letters and numbers.
+            </p>
+
+            <button
+              type="submit"
+              className="bg-[#971B22] text-white font-bold py-2 mt-16 px-4 rounded-3xl w-full mb-4"
             >
-              {showPassword ? <FaRegEye /> : <FaEyeSlash />}
-            </span>
-          </div>
-          <p className="text-sm text-[#971B22] mb-4">
-            Combine upper and lowercase letters and numbers.
-          </p>
-          <Link className="w-full" to="/login">
-            <button className="bg-[#971B22] text-white font-bold py-2 mt-16 px-4 rounded-3xl w-full mb-4">
               Sign Up
             </button>
-          </Link>
-          <p className="text-[#971B22]">
-            By joining, you agree to Reflex's{" "}
-            <Link
-              className="text-sm mb-4 text-red-500 w-full text-end opacity-70"
-              to=""
-            >
-              Terms of Service
-            </Link>
-          </p>
+            <p className="text-[#971B22]">
+              By joining, you agree to Reflex's{" "}
+              <Link
+                className="text-sm mb-4 text-red-500 w-full text-end opacity-70"
+                to=""
+              >
+                Terms of Service
+              </Link>
+            </p>
+          </form>
         </div>
       )}
     </div>
