@@ -31,14 +31,10 @@ function NavBar() {
           <div className="flex">
             <ul className="flex space-x-10">
               <li className="text-gray-900 border border-red-800 px-6 py-2 rounded-3xl">
-                <NavLink to="/login">
-                Log in
-                </NavLink>
+                <NavLink to="/login">Log in</NavLink>
               </li>
               <li className="bg-red-800 px-4 py-2 rounded-3xl">
-                <NavLink to="/signup">
-                Sign up
-                </NavLink>
+                <NavLink to="/signup">Sign up</NavLink>
               </li>
             </ul>
             {/*<NavLink to="/userprofile">
@@ -49,7 +45,6 @@ function NavBar() {
               />
             </NavLink>*/}
           </div>
-          </NavLink>
         </nav>
       </header>
     </div>

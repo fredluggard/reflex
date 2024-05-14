@@ -1,9 +1,8 @@
 import "./App.css";
 import "./style/style.css";
-import "./components/SignUp"
+import "./components/SignUp";
 import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
-
 
 function App() {
   return (
@@ -19,4 +18,3 @@ function App() {
 }
 
 export default App;
-
