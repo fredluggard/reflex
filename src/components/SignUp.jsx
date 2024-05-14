@@ -21,10 +21,10 @@ function SignUp() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://reflex1-2.onrender.com/api/user/signup",
+        "https://reflex1-3.onrender.com/api/user/signup",
         {
+          username: userName,
           email: email,
-          userName: userName,
           password: password,
         }
       );
