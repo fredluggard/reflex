@@ -21,7 +21,7 @@ function ImageCarousel() {
   const CustomNextArrow = ({ onClick }) => {
     return (
       <button
-        className="flex justify-center items-center relative top-[-95px] left-[42%] h-[70px] w-[180px] transform -translate-y-1/2 z-10 text-white bg-black bg-opacity-80 px-4 py-2 rounded-xl"
+        className="flex justify-center items-center relative top-[-95px] left-[62%] h-[70px] w-[180px] transform -translate-y-1/2 z-10 text-white bg-black bg-opacity-80 px-4 py-2 rounded-xl"
         onClick={onClick}
       >
         <FaArrowRightLong size={"50px"} />
