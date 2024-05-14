@@ -10,7 +10,7 @@ function NavBar() {
   };
   return (
     <div>
-      <header className="px-12 pb-4 pt-8 border-b text-white border-white">
+      <header className="px-12 pb-4 pt-8 border-b text-white ">
         <nav className="flex items-center justify-between">
           <img src="/images/logo.png" width="85" alt="logo" />
           <ul className="hidden md:flex space-x-20 text-black">
