@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import NavBar from "../components/NavBar";
 import axios from "axios";
+import ImageCarousel from "../components/ImageCarousel";
 
 function SigninPage() {
+  const img1 = "images/signin-1.png";
+  const img2 = "images/signin-2.png";
+  const img3 = "images/signin-3.png";
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -35,11 +38,8 @@ function SigninPage() {
   };
 
   return (
-    <div className="bg-mobile-bg bg-cover bg-center">
-      <nav className="hidden md:block">
-        <NavBar />
-      </nav>
-      <div className="relative flex flex-col justify-center items-center p-4 pt-10 h-[100vh] text-[#971B22] py-6 bg-mobile-bg">
+    <div className="bg-mobile-bg h-screen bg:cover md:bg-contain bg-center">
+      <div className="md:hidden relative flex flex-col justify-center items-center p-4 pt-10 h-[100vh] text-[#971B22] py-6 bg-mobile-bg">
         <div className="flex flex-col justify-center items-center relative top-4">
           <h2 className="text-2xl font-bold mt-4 mb-1">Welcome back</h2>
           <p className="text-md my-2">Sign in to continue</p>
@@ -106,6 +106,71 @@ function SigninPage() {
             </Link>
           </div>
         </form>
+      </div>
+
+      {/* Desktop view */}
+      <div className="hidden md:block relative md:w-screen md:h-[85vh] px-10">
+        <img
+          className="mx-12 my-4"
+          src="/images/logo.png"
+          width={"100px"}
+          height={"100px"}
+          alt="logo"
+        />
+        <div className="flex flex-row justify-center items-center px-10 ">
+          <form
+            className="flex flex-col w-[50%] pl-4 justify-center items-start"
+            onSubmit={handleSubmit}
+          >
+            <h1 className="font-bold text-2xl">Login to your account</h1>
+            <p className="font-medium text-lg mb-8">Welcome back</p>
+
+            <label className="font-medium text-md" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="bg-[#e6e7e9] border-[#e6e7e9] border-2 outline-[#B33625] px-2 mb-4 rounded-md h-12 w-[80%]"
+              type="text"
+              name="email"
+              id="email"
+              placeholder="youremail@gmail.com"
+              required
+            />
+            <label className="font-medium text-md" htmlFor="password">
+              Password
+            </label>
+            <div className="flex w-[80%] relative mb-1">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="* * * * * * * *"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                className="bg-[#e6e7e9] border-[#e6e7e9] border-2 outline-[#B33625] px-2 mb-4 rounded-md h-12 w-full"
+              />
+              <span
+                className="absolute text-[#B33625] text-xl right-0 top-3 flex items-center pr-3 cursor-pointer"
+                onClick={handleTogglePassword}
+              >
+                {showPassword ? <FaRegEye /> : <FaEyeSlash />}
+              </span>
+            </div>
+            <button
+              className="h-12 w-[80%] text-white bg-[#B33625] rounded-xl"
+              type="submit"
+            >
+              Login
+            </button>
+            <Link
+              className="h-12 w-[80%] text-[#B33625] bg-white rounded-xl border-[1px] border-[#B33625] text-center flex justify-center items-center mt-6"
+              to="/resetpassword"
+            >
+              Forgot Password
+            </Link>
+          </form>
+          <div className="w-[50%] h-[600px]">
+            <ImageCarousel img1={img1} img2={img2} img3={img3} />
+          </div>
+        </div>
       </div>
     </div>
   );
