@@ -1,25 +1,29 @@
 import "./App.css";
 import "./style/style.css";
+// import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import SubstanceAbuse from "./components/SubstanceAbuse";
+// import Footer from "./components/Footer";
+// import ImageCarousel from "./components/ImageCarousel";
+
 
 function App() {
   return (
     <div className="App">
+  
       <div className="bg-mobile-bg">
         <NavBar />
-<<<<<<< HEAD
+        <SubstanceAbuse />
+        
+        {/* <Footer />  */}
 
-        <div className="hidden w-[50vw] md:block">
+        {/* <div className="hidden w-[50vw] md:block">
           <ImageCarousel />
-        </div>
-=======
-        <Footer />
-        <div className="hidden w-[50vw] md:block"></div>
->>>>>>> develop
+        </div> */}
       </div>
     </div>
   );
-} <SignUp />
+} 
+/* <SignUp /> */
 
 export default App;

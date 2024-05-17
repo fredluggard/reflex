@@ -1,5 +1,5 @@
 import React from "react";
-// import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import firstAid from "../images/quickTips/firstAid.png"
 import fireExtinguisher from "../images/quickTips/fireExtinguisher.png"
 import driver from "../images/quickTips/driver.png"
