@@ -7,6 +7,7 @@ import eswama from '../images/hotlineImages/eswama.svg'
 import erAfrica from '../images/hotlineImages/erAfrica.svg'
 import '../style/otherHotlines.css'
 
+
 function OtherHotlines() {
   return (
     <div className='other-hotlines'>

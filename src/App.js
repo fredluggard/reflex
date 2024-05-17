@@ -12,9 +12,7 @@ function App() {
   
       <div className="bg-mobile-bg">
         <NavBar />
-        <SignUp />
-
-        <Footer />
+        <Footer /> 
 
         <div className="hidden w-[50vw] md:block">
           <ImageCarousel />
@@ -22,6 +20,6 @@ function App() {
       </div>
     </div>
   );
-}
+} <SignUp />
 
 export default App;
