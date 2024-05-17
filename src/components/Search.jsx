@@ -6,7 +6,7 @@ export default function SearchBar() {
     <div className="wrapper">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search..." 
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);

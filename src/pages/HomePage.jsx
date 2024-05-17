@@ -7,7 +7,7 @@ import MainMenu from "../components/MainMenu";
 function HomePage() {
   return (
     <div className="h-screen">
-      <nav className="hidden md:block">
+      <nav className=" md:block bg-none">
         <NavBar />
       </nav>
       <div className="relative h-full w-full gap-10 flex flex-col justify-between bg-mobile-bg">
