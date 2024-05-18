@@ -1,15 +1,14 @@
 .hp-hotlines{
-    width: 280px;
-    height: 96px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    text-align: center;
 }
 .ambulance{
     width:77px;
     height: 96px;
     font-size: 12px;
     font-weight: 400;
-   
+
 }
 .ambulance p{
     width: 77px;
@@ -25,15 +24,16 @@
 }
 
 .plus-icon{
-    width: 77px;
-    height: 53px;
-    background-color:blue;
-    border: none;
+    display: flex;
+    width: 115px;
+    height: 55px;
+    background-color: white;
     border-radius:36px 0px 0px 36px ;
-    position: relative;
-    left: 255px;
-    top: -77px;
+    position: absolute;
+    right: 3px;
+    top: 95px;
 }
+
 
 .other-hotlines{
 width: 327px;

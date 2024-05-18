@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <div className="bg-mobile-bg md:bg-desktop-bg">
         <NavBar />
-        <SignUp />
+        {/* <SignUp /> */}
 
         <Footer />
 

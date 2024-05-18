@@ -6,13 +6,17 @@ import MainMenu from "../components/MainMenu";
 
 function HomePage() {
   return (
-    <div className="h-screen">
-      <nav className=" md:block bg-none">
+    <div className="h-screen  bg-mobile-bg md:bg-desktop-bg">
+      <nav className=" md:block ">
         <NavBar />
       </nav>
-      <div className="relative h-full w-full gap-10 flex flex-col justify-between bg-mobile-bg md:bg-desktop-bg">
-        <SearchBar />
-        <HomepageHotlines />
+      <div className="relative h-full w-full gap-10 flex flex-col justify-between px-6">
+        <section className="">
+          <div className=" mt-4 flex flex-col gap-6">
+            <SearchBar />
+            <HomepageHotlines />
+          </div>
+        </section>
         <section className="relative">
           <MainMenu />
         </section>
