@@ -12,6 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import OtherHotlines from "./components/otherHotlines";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
+import AllMaps from "./pages/AllMaps";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/userprofile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/tracking",
+    element: <AllMaps />,
   },
   {
     path: "/otherhotlines",

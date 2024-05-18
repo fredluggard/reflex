@@ -7,7 +7,7 @@ function ResourcesPage() {
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="bg-mobile-bg">
+      <div className="bg-mobile-bg md:bg-desktop-bg">
         <h1>Resources Page</h1>
       </div>
     </div>
