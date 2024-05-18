@@ -1,15 +1,105 @@
 import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-control-geocoder/dist/Control.Geocoder.js";
+import { Icon } from "leaflet";
+import useGeoLocation from "../hooks/useGeoLocation";
+import GeoCoder from "./GeoCoder";
 
-function GeoMap() {
+function GeoMap(props) {
+  const userIcon = new Icon({
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/3710/3710297.png",
+    iconSize: [40, 40],
+  });
+  const locationIcon = new Icon({
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/149/149060.png",
+    iconSize: [40, 40],
+  });
+  const ambulanceIcon = new Icon({
+    iconUrl: "https://img.icons8.com/?size=48&id=rBh1fuOC6Bjx&format=png",
+    iconSize: [40, 40],
+  });
+
+  const policeIcon = new Icon({
+    iconUrl: "https://img.icons8.com/?size=80&id=KC6AUAgtRrEN&format=png",
+    iconSize: [40, 40],
+  });
+
+  const roadSafetyIcon = new Icon({
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/10275/10275975.png",
+    iconSize: [40, 40],
+  });
+
+  const fireServiceIcon = new Icon({
+    iconUrl: "https://img.icons8.com/?size=48&id=15149&format=png",
+    iconSize: [40, 40],
+  });
+
+  const position = [6.4852, 7.5193];
+
+  const location = useGeoLocation();
+
   return (
     <div>
-      <MapContainer center={[6.4852, 7.5193]} zoom={10}>
+      <MapContainer center={props.location} zoom={props.zoom}>
         <TileLayer
           attribution=""
           url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}@2x.png?key=l2IUqASnkZluj7UFjpyh"
         />
+        <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" />
+
+        {/* Ambulance Services */}
+        {props.ambulanceMarkers.map((marker) => (
+          <Marker position={marker.geocode} icon={ambulanceIcon}>
+            <Popup>
+              <p className="font-bold">{marker.popUp}</p>
+            </Popup>
+          </Marker>
+        ))}
+
+        {/* Police Services */}
+        {props.policeMarkers.map((marker) => (
+          <Marker position={marker.geocode} icon={policeIcon}>
+            <Popup>
+              <p className="font-bold">{marker.popUp}</p>
+            </Popup>
+          </Marker>
+        ))}
+
+        {/* Road Safety */}
+        {props.roadSafetyMarkers.map((marker) => (
+          <Marker position={marker.geocode} icon={roadSafetyIcon}>
+            <Popup>
+              <p className="font-bold">{marker.popUp}</p>
+            </Popup>
+          </Marker>
+        ))}
+
+        {/* Fire Service */}
+        {props.fireServiceMarkers.map((marker) => (
+          <Marker position={marker.geocode} icon={fireServiceIcon}>
+            <Popup>
+              <p className="font-bold">{marker.popUp}</p>
+            </Popup>
+          </Marker>
+        ))}
+
+        {/* User location */}
+        {location.loaded && !location.error && (
+          <Marker
+            position={[location.coordinates.lat, location.coordinates.lng]}
+            icon={userIcon}
+          >
+            <Popup>
+              <p className="font-bold">Current location</p>
+            </Popup>
+          </Marker>
+        )}
+        {/* Customizable Pin */}
+        {/* <Marker position={position} icon={locationIcon}>
+          <Popup>Customizable Pin</Popup>
+        </Marker> */}
+        <GeoCoder />
       </MapContainer>
     </div>
   );

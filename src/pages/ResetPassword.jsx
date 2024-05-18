@@ -39,7 +39,7 @@ function ResetPassword() {
           alt="logo"
         />
       </nav>
-      <div className="flex justify-center items-center w-full bg-mobile-bg">
+      <div className="flex justify-center items-center w-full bg-mobile-bg md:bg-desktop-bg">
         {getCode === "one" ? (
           <div className="flex w-full items-center justify-center px-4 md:px-12">
             <div className="md:w-[50%] py-10">
