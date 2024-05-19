@@ -3,18 +3,24 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import { Icon } from "leaflet";
+import L from "leaflet";
 import useGeoLocation from "../hooks/useGeoLocation";
 import GeoCoder from "./GeoCoder";
+import Routing from "./Routing";
 
 function GeoMap(props) {
+  let defaultIcon = L.icon({
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/727/727606.png",
+    iconSize: [40, 40],
+    popupAnchor: [2, -15],
+  });
+  L.Marker.prototype.options.icon = defaultIcon;
+
   const userIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/3710/3710297.png",
     iconSize: [40, 40],
   });
-  const locationIcon = new Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/149/149060.png",
-    iconSize: [40, 40],
-  });
+
   const ambulanceIcon = new Icon({
     iconUrl: "https://img.icons8.com/?size=48&id=rBh1fuOC6Bjx&format=png",
     iconSize: [40, 40],
@@ -35,7 +41,7 @@ function GeoMap(props) {
     iconSize: [40, 40],
   });
 
-  const position = [6.4852, 7.5193];
+  //   const position = [6.4852, 7.5193];
 
   const location = useGeoLocation();
 
@@ -96,10 +102,9 @@ function GeoMap(props) {
           </Marker>
         )}
         {/* Customizable Pin */}
-        {/* <Marker position={position} icon={locationIcon}>
-          <Popup>Customizable Pin</Popup>
-        </Marker> */}
-        <GeoCoder />
+
+        {/* <GeoCoder /> */}
+        <Routing />
       </MapContainer>
     </div>
   );

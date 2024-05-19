@@ -9,9 +9,9 @@ import policeMarkers from "../policeMarkers.json";
 
 function AllMaps() {
   //   const userLocation = useGeoLocation();
-  //   // userLocation.coordinates.lat, userLocation.coordinates.lng
-  const location = [6.4852, 7.5193];
-  const zoom = 10;
+  //   userLocation.coordinates.lat, userLocation.coordinates.lng
+  const location = [6.4483, 7.5139];
+  const zoom = 12;
 
   return (
     <div>
