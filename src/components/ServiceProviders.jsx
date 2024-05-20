@@ -19,7 +19,7 @@ function ServiceProviders() {
 
   return (
     <div className>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center">
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-x-0 sm:gap-y-20 h-auto w-auto  text-[#B33625]">
           <button
             onClick={() => handleButton("ambulance")}
@@ -105,8 +105,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "frsc"
-                    ? "shadow-md sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow-md sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow-md  bg-white sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={frsc} alt="FRSC" />
@@ -124,8 +124,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "sss"
-                    ? "shadow-md sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow-md sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow-md  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={sss} alt="SSS" />
@@ -151,8 +151,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "ncc"
-                    ? "shadow sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={ncc} alt="NCC" />
@@ -170,8 +170,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "ndlea"
-                    ? "shadow sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={ndlea} alt="NDLEA" />
@@ -191,8 +191,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "eswama"
-                    ? "shadow sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow sm:shadow sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white sm:shadow sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={eswama} alt="ESWAMA" />
@@ -212,8 +212,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "erAfrica"
-                    ? "shadow sm:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white sm:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={erAfrica} alt="erAfrica" />

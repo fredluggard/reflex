@@ -48,6 +48,10 @@ const router = createBrowserRouter([
     path: "/serviceproviders",
     element: <ServiceProviders />,
   },
+  {
+    path: "/servicePpage",
+    element: <ServiceProvidersPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

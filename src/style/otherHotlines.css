@@ -1,4 +1,4 @@
-/* .hp-hotlines{
+.hp-hotlines{
     width: 280px;
     height: 96px;
     display: flex;
@@ -27,7 +27,7 @@
 .plus-icon{
     width: 77px;
     height: 53px;
-    background-color:blue;
+    background-color:rgb(202, 202, 219);
     border: none;
     border-radius:36px 0px 0px 36px ;
     position: relative;
@@ -70,4 +70,4 @@ font-weight: 400;
 .erAfrica-div{
     width: 129px;
     height: 167.67px;
-} */
+}
