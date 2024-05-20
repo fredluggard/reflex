@@ -9,7 +9,8 @@ import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
 import ProfilePage from "./pages/ProfilePage";
-import OtherHotlines from "./components/otherHotlines";
+import ServiceProvidersPage from "./pages/ServiceProvidersPage";
+import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
 
@@ -44,8 +45,8 @@ const router = createBrowserRouter([
     element: <ProfilePage />,
   },
   {
-    path: "/otherhotlines",
-    element: <OtherHotlines />,
+    path: "/serviceproviders",
+    element: <ServiceProviders />,
   },
 ]);
 
