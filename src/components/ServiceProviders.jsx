@@ -9,6 +9,7 @@ import ambulance from "../images/hotlineImages/ambulance.svg";
 import fireService from "../images/hotlineImages/fireService.svg";
 import police from "../images/hotlineImages/police.svg";
 import { useState } from "react";
+import NavBar from "./NavBar";
 
 function ServiceProviders() {
   const [serviceName, setServiceName] = useState("");
@@ -18,8 +19,8 @@ function ServiceProviders() {
   };
 
   return (
-    <div className>
-      <div className="flex justify-center items-center">
+    <div>
+      <div className="flex justify-center items-center mt-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-x-0 sm:gap-y-20 h-auto w-auto  text-[#B33625]">
           <button
             onClick={() => handleButton("ambulance")}

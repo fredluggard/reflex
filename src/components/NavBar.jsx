@@ -27,7 +27,7 @@ function NavBar() {
             </li>
             <li>
               <NavLink
-                to="/serviceprovider"
+                to="/serviceproviders"
                 onClick={() => handleLinkClick("ServiceProvider")}
                 className={`hover:text-[#971B22] ${
                   activeLink === "ServiceProvider" ? "text-[#971B22]" : ""

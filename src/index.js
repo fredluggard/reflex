@@ -13,6 +13,7 @@ import ServiceProvidersPage from "./pages/ServiceProvidersPage";
 import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
+import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +45,14 @@ const router = createBrowserRouter([
     path: "/userprofile",
     element: <ProfilePage />,
   },
+  
   {
     path: "/serviceproviders",
-    element: <ServiceProviders />,
+    element: <ServiceProvidersPage />,
   },
   {
-    path: "/servicePpage",
-    element: <ServiceProvidersPage />,
+    path: "/emergencyhotlines",
+    element: <EmergencyHotlinesPage />,
   },
 ]);
 

@@ -1,16 +1,11 @@
 import React from 'react'
-import BackTick from '../components/BackTick'
 import ServiceProviders from '../components/ServiceProviders'
-import SearchBar from '../components/Search'
+import NavBar from '../components/NavBar'
 
 function ServiceProvidersPage() {
   return (
-    <div className='w-screen h-screen'>
-        <div className='flex justify-center items-center w-full h-auto gap-x-4 mb-4 mt-16 '>
-            <BackTick />
-            <h3 className='text-2xl font-normal text-gray-600 '>Emergency Hotlines</h3>
-        </div>
-        <SearchBar />
+    <div className='w-screen h-screen hidden sm:block'>
+              <NavBar />
         <ServiceProviders />
     </div>
   )
