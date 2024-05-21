@@ -9,59 +9,47 @@ import phoneCall from "../images/quickTips/phoneCall.png"
 import '../style/quickTips.css'
 
 function ResourcesPage() {
-  return (
-   <div>
+ return (
+    <div className="min-h-screen">
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="md:flex bg-mobile text-2xl mt-20 px-24 font-bold">
-        <h1>Quick Tips & Resources</h1>
+      <div className="flex flex-col items-start bg-mobile text-2xl mt-10 px-4 md:px-24 font-bold">
+        <h1 className="text-center mb-6">Quick Tips & Resources</h1>
       </div>
 
-      <div className='quick-tips'>
-        <div className='tips1'>
-          <div> 
-            <img src={firstAid} alt='First Aid'/>
-            <p className='firstaid-tips'>First-aid tips</p>
-          </div>
-          <div> 
-            <img src={fireExtinguisher} alt='First Extinguisher'/>
-            <p className='fire-tips'>Fire safety</p>
-          </div>
-          <div> 
-            <img src={driver} alt='Driver'/>
-            <p className='driver-tips'>Road & driver safety</p>
-          </div>
-           <div> 
-            <img src={drugs} alt='Drugs'/>
-            <p className='drug-tips'>Substance abuse</p>
-          </div>
+      <div className='quick-tips grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4'>
+        <div className="flex flex-col items-center">
+          <img src={firstAid} alt='First Aid' className="w-full h-auto"/>
+          <p className='firstaid-tips text-center mt-2 mx-10 flex items-start'>First-aid tips</p>
         </div>
-
-        <div className='tips2'>
-          <div> 
-            <img src={motherChild} alt='Mother and child'/>
-            <p className='violence-tips'>Domestic violence</p>
-          </div>
-          <div> 
-            <img src={phoneCall} alt='Phone Call'/>
-            <p className='emergency-tips'>Emergency contacts</p>
-          </div>
-           <div> 
-            <img src alt=''/>
-            <p></p>
-          </div>
-           <div> 
-            <img src alt=''/>
-            <p></p>
-          </div>
-
-
+        <div className="flex flex-col items-center">
+          <img src={fireExtinguisher} alt='Fire Extinguisher' className="w-full h-auto"/>
+          <p className='fire-tips text-center mt-2 mx-10'>Fire safety</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <img src={driver} alt='Driver' className="w-full h-auto"/>
+          <p className='driver-tips text-center mt-2'>Road & driver safety</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <img src={drugs} alt='Drugs' className="w-full h-auto"/>
+          <p className='drug-tips text-center mt-2'>Substance abuse</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <img src={motherChild} alt='Mother and child' className="w-full h-auto"/>
+          <p className='violence-tips text-center mt-2'>Domestic violence</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <img src={phoneCall} alt='Phone Call' className="w-full h-auto"/>
+          <p className='emergency-tips text-center mt-2'>Emergency contacts</p>
         </div>
       </div>
-
     </div>
   );
 }
 
+
 export default ResourcesPage;
+
+
+  

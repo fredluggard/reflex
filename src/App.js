@@ -2,7 +2,6 @@ import "./App.css";
 import "./style/style.css";
 import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
-// import SubstanceAbuse from "./components/SubstanceAbuse";
 import Footer from "./components/Footer";
 import ImageCarousel from "./components/ImageCarousel";
 
@@ -13,9 +12,7 @@ function App() {
   
       <div className="bg-mobile-bg">
         <NavBar />
-        {/* <SubstanceAbuse /> */}
-        
-        <Footer /> 
+        <Footer />
 
         <div className="hidden w-[50vw] md:block">
           <ImageCarousel />
