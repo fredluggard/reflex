@@ -1,5 +1,4 @@
 import React from "react";
-import "../style/otherHotlines.css";
 import ambulance from "../images/hotlineImages/AmbulanceCross.svg";
 import fireservice from "../images/hotlineImages/fireService.svg";
 import police from "../images/hotlineImages/police.svg";
