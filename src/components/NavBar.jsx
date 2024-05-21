@@ -10,16 +10,21 @@ function NavBar() {
   };
   return (
     <div>
+<<<<<<< HEAD
       <header className="px-6 pb-3 pt-16 border-b-2 border-black text-white ">
         <nav className="flex items-center justify-between ">
+=======
+      <header className="px-12 pb-4 pt-8 text-white ">
+        <nav className="hidden md:flex items-center justify-between">
+>>>>>>> 8c34f943fc30bf887b663e07d787906c7ff61f3a
           <img src="/images/logo.png" width="85" alt="logo" />
           <ul className="hidden md:flex space-x-20 text-black ">
             <li>
               <NavLink
                 to="/"
                 onClick={() => handleLinkClick("Home")}
-                className={`hover:text-[#971B22] ${
-                  activeLink === "Home" ? "text-[#971B22]" : ""
+                className={`hover:text-[#D00000] ${
+                  activeLink === "Home" ? "text-[#D00000]" : ""
                 }`}
               >
                 Home
@@ -29,8 +34,8 @@ function NavBar() {
               <NavLink
                 to="/serviceprovider"
                 onClick={() => handleLinkClick("ServiceProvider")}
-                className={`hover:text-[#971B22] ${
-                  activeLink === "ServiceProvider" ? "text-[#971B22]" : ""
+                className={`hover:text-[#D00000] ${
+                  activeLink === "ServiceProvider" ? "text-[#D00000]" : ""
                 }`}
               >
                 Service provider
@@ -40,8 +45,8 @@ function NavBar() {
               <NavLink
                 to="/resources"
                 onClick={() => handleLinkClick("Resources")}
-                className={`hover:text-[#971B22] ${
-                  activeLink === "Resources" ? "text-[#971B22]" : ""
+                className={`hover:text-[#D00000] ${
+                  activeLink === "Resources" ? "text-[#D00000]" : ""
                 }`}
               >
                 Information resources
@@ -51,8 +56,8 @@ function NavBar() {
               <NavLink
                 to="/tracking"
                 onClick={() => handleLinkClick("Tracking")}
-                className={`hover:text-[#971B22] ${
-                  activeLink === "Tracking" ? "text-[#971B22]" : ""
+                className={`hover:text-[#D00000] ${
+                  activeLink === "Tracking" ? "text-[#D00000]" : ""
                 }`}
               >
                 Realtime tracking
@@ -91,7 +96,7 @@ function NavBar() {
           </div>
         </nav>
       </header>
-      <div className="border"></div>
+      <div className="hidden md:flex border"></div>
     </div>
   );
 }
