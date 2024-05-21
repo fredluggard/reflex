@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar'
 
 function ServiceProvidersPage() {
   return (
-    <div className='bg-mobile-bg sm:bg:desktop-bg w-screen h-screen hidden sm:block'>
+    <div className='bg-mobile-bg md:bg:desktop-bg w-screen h-screen hidden md:block'>
         <div>
               <NavBar />
         </div>

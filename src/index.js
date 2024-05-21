@@ -79,6 +79,7 @@ const router = createBrowserRouter([
     path: "/frsc",
     element: <FrscMap />,
   },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

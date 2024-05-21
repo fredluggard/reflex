@@ -17,59 +17,32 @@ function ServiceProviders() {
     setServiceName(imageName);
   };
 
+  const widthSize = window.innerWidth;
 
-  // window.addEventListener("resize", myFunction);
-
-  // function myFunction() {
-  //   const breakpoint = 640;
-  //   const myAnchor = document.getElementById('anchor');
-  //   if(window.innerWidth >= breakpoint){
-  //     myAnchor.href = "#"
-  //   }else{
-  //     myAnchor.href = "##"
-  //   }
-
-  // }
-
-  window.addEventListener('resize', function() {
-    const breakpoint = 640;
-    const telLinks = document.querySelectorAll('a[href^="tel:"]');
   
-    for (let i = 0; i < telLinks.length; i++) {
-      const originalHref = telLinks[i].getAttribute('href');
-  
-      if (window.innerWidth >= breakpoint) {
-        telLinks[i].href = '#';
-      } else {
-        telLinks[i].href = originalHref;
-      }
-    }
-  });
-  
-   
 
   return (
     <div>
       <div className="flex justify-center items-center mt-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-x-0 sm:gap-y-20 h-auto w-auto  text-[#B33625]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-x-0 md:gap-y-20 h-auto w-auto  text-[#B33625]">
           <button
             onClick={() => handleButton("ambulance")}
             className={
               serviceName === "ambulance"
-                ? "hidden sm:block sm:bg-red-300 sm:text-black rounded-3xl cursor-pointer"
-                : "hidden sm:block cursor-pointer"
+                ? "hidden md:block md:bg-red-300 md:text-black rounded-3xl cursor-pointer"
+                : "hidden md:block cursor-pointer"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center ">
               <div
                 className={
                   serviceName === "ambulance"
-                    ? "shadow-md sm:shadow-none h-24 w-24 flex justify-center items-center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "
-                    : " shadow-md sm:shadow-none sm:border-2 sm:border-red-700 sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow-md md:shadow-none h-24 w-24 flex justify-center items-center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "
+                    : " shadow-md md:shadow-none md:border-2 md:border-[#DC1D2DE6] md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img
-                  className="w-16 h-20 sm:w-20 sm:h-20 "
+                  className="w-16 h-20 md:w-20 md:h-20 "
                   src={ambulance}
                   alt="Ambulance"
                 />
@@ -81,8 +54,8 @@ function ServiceProviders() {
             onClick={() => handleButton("fireService")}
             className={
               serviceName === "fireService"
-                ? "hidden sm:block bg-red-300 rounded-3xl text-black"
-                : "hidden sm:block"
+                ? "hidden md:block bg-red-300 rounded-3xl text-black"
+                : "hidden md:block"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center">
@@ -90,7 +63,7 @@ function ServiceProviders() {
                 className={
                   serviceName === "fireService"
                     ? "border-0"
-                    : "border-2 border-red-700 rounded-full h-24 w-24 flex justify-center items-center"
+                    : "border-2 border-[#DC1D2DE6] rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img
@@ -109,16 +82,16 @@ function ServiceProviders() {
             onClick={() => handleButton("police")}
             className={
               serviceName === "police"
-                ? "hidden sm:block sm:bg-red-300 sm:text-black sm:rounded-3xl"
-                : "hidden sm:block"
+                ? "hidden md:block md:bg-red-300 md:text-black md:rounded-3xl"
+                : "hidden md:block"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center  ">
               <div
                 className={
                   serviceName === "police"
-                    ? " shadow-md sm:shadow-none border-0 h-24 w-24 flex justify-center items-center"
-                    : " shadow-md sm:shadow-none sm:border-2 sm:border-red-700 sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? " shadow-md md:shadow-none border-0 h-24 w-24 flex justify-center items-center"
+                    : " shadow-md md:shadow-none md:border-2 md:border-[#DC1D2DE6] md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={police} alt="Police" />
@@ -127,11 +100,11 @@ function ServiceProviders() {
             </div>
           </button>
           <a
-            href="tel:122"
+            href={widthSize >= 768 ? "#" : "tel:122"}
             onClick={() => handleButton("frsc")}
             className={
               serviceName === "frsc"
-                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl sm:mr-4 cursor-pointer"
+                ? "md:bg-red-300 md:text-black md:rounded-3xl md:mr-4 cursor-pointer"
                 : "cursor-pointer"
             }
           >
@@ -139,8 +112,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "frsc"
-                    ? "shadow-md  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow-md  bg-white md:bg-opacity-0 md:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow-md  bg-white md:shadow-none md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={frsc} alt="FRSC" />
@@ -149,21 +122,20 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href="tel:+2348132222105"
-            id=""
+            href= {widthSize >= 768 ? "#" : "tel:+2348132222105"}
             onClick={() => handleButton("sss")}
             className={
               serviceName === "sss"
-                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                ? "md:bg-red-300 md:text-black md:rounded-3xl cursor-pointer"
                 : "cursor-pointer"
             }
           >
-            <div className="flex flex-col flex-wrap justify-center items-center text-center sm:-ml-3">
+            <div className="flex flex-col flex-wrap justify-center items-center text-center md:-ml-3">
               <div
                 className={
                   serviceName === "sss"
-                    ? "shadow-md  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow-md  bg-white md:bg-opacity-0 md:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow-md  bg-white md:shadow-none md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={sss} alt="SSS" />
@@ -171,8 +143,8 @@ function ServiceProviders() {
               <span
                 className={
                   serviceName === "sss"
-                    ? "w-24 sm:w-36 sm:text-sm sm:font-light sm:pl-3"
-                    : "w-24 sm:w-36 "
+                    ? "w-24 md:w-36 md:text-md md:font-light md:pl-3"
+                    : "w-24 md:w-36 "
                 }
               >
                 State Sec. Service
@@ -180,11 +152,11 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href="tel:112"
+            href= {widthSize >= 768 ? "#" :"tel:112"}
             onClick={() => handleButton("ncc")}
             className={
               serviceName === "ncc"
-                ? "sm:bg-red-300 sm:text-black rounded-3xl cursor-pointer"
+                ? "md:bg-red-300 md:text-black rounded-3xl cursor-pointer"
                 : "cursor-pointer"
             }
           >
@@ -192,8 +164,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "ncc"
-                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white md:bg-opacity-0 md:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white md:shadow-none md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={ncc} alt="NCC" />
@@ -202,11 +174,11 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href="tel:+234803347868"
+            href={ widthSize >= 768 ? "#" : "tel:+234803347868"}
             onClick={() => handleButton("ndlea")}
             className={
               serviceName === "ndlea"
-                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                ? "md:bg-red-300 md:text-black md:rounded-3xl cursor-pointer"
                 : "cursor-pointer"
             }
           >
@@ -214,8 +186,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "ndlea"
-                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
-                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white md:bg-opacity-0 md:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white md:shadow-none md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={ndlea} alt="NDLEA" />
@@ -224,11 +196,11 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href="tel:+2348037326662"
+            href={widthSize >= 768 ? "#" : "tel:+2348037326662"}
             onClick={() => handleButton("eswama")}
             className={
               serviceName === "eswama"
-                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                ? "md:bg-red-300 md:text-black md:rounded-3xl cursor-pointer"
                 : "cursor-pointer"
             }
           >
@@ -236,8 +208,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "eswama"
-                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow  bg-white sm:shadow sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white md:bg-opacity-0 md:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white md:shadow md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={eswama} alt="ESWAMA" />
@@ -246,11 +218,11 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href="tel:080002255372"
+            href={ widthSize >= 768 ? "#" : "tel:080002255372"}
             onClick={() => handleButton("erAfrica")}
             className={
               serviceName === "erAfrica"
-                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                ? "md:bg-red-300 md:text-black md:rounded-3xl cursor-pointer"
                 : "cursor-pointer"
             }
           >
@@ -258,8 +230,8 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "erAfrica"
-                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
-                    : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
+                    ? "shadow  bg-white md:bg-opacity-0 md:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
+                    : "shadow  bg-white md:shadow-none md:border-2 md:border-[#DC1D2DE6] rounded-3xl md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
                 <img className="w-20 h-20" src={erAfrica} alt="erAfrica" />
@@ -270,7 +242,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "ambulance" ? " hidden sm:block w-5/12" : "hidden"
+            serviceName === "ambulance" ? " hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -283,7 +255,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "fireService" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "fireService" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -296,7 +268,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "police" ? " hidden sm:block w-5/12" : "hidden"
+            serviceName === "police" ? " hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -309,7 +281,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "frsc" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "frsc" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -322,7 +294,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "sss" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "sss" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -335,7 +307,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "ncc" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "ncc" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -348,7 +320,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "ndlea" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "ndlea" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -361,7 +333,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "eswama" ? "hidden sm:block w-5/12" : "hidden"
+            serviceName === "eswama" ? "hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
@@ -376,7 +348,7 @@ function ServiceProviders() {
         </div>
         <div
           className={
-            serviceName === "erAfrica" ? " hidden sm:block w-5/12" : "hidden"
+            serviceName === "erAfrica" ? " hidden md:block w-5/12" : "hidden"
           }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
