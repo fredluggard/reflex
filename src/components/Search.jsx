@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function SearchBar() {
   const [search, setSearch] = useState("");
   return (
-    <div className="wrapper mb-4">
+    <div className="wrapper">
       <input
         type="text"
         placeholder="Search..."

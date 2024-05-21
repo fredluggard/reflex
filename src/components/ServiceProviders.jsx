@@ -9,7 +9,6 @@ import ambulance from "../images/hotlineImages/ambulance.svg";
 import fireService from "../images/hotlineImages/fireService.svg";
 import police from "../images/hotlineImages/police.svg";
 import { useState } from "react";
-import NavBar from "./NavBar";
 
 function ServiceProviders() {
   const [serviceName, setServiceName] = useState("");
@@ -17,6 +16,37 @@ function ServiceProviders() {
   const handleButton = (imageName) => {
     setServiceName(imageName);
   };
+
+
+  // window.addEventListener("resize", myFunction);
+
+  // function myFunction() {
+  //   const breakpoint = 640;
+  //   const myAnchor = document.getElementById('anchor');
+  //   if(window.innerWidth >= breakpoint){
+  //     myAnchor.href = "#"
+  //   }else{
+  //     myAnchor.href = "##"
+  //   }
+
+  // }
+
+  window.addEventListener('resize', function() {
+    const breakpoint = 640;
+    const telLinks = document.querySelectorAll('a[href^="tel:"]');
+  
+    for (let i = 0; i < telLinks.length; i++) {
+      const originalHref = telLinks[i].getAttribute('href');
+  
+      if (window.innerWidth >= breakpoint) {
+        telLinks[i].href = '#';
+      } else {
+        telLinks[i].href = originalHref;
+      }
+    }
+  });
+  
+   
 
   return (
     <div>
@@ -87,7 +117,7 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "police"
-                    ? " shadow-md sm:shadow-none border-0 h-24 w-24"
+                    ? " shadow-md sm:shadow-none border-0 h-24 w-24 flex justify-center items-center"
                     : " shadow-md sm:shadow-none sm:border-2 sm:border-red-700 sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -96,17 +126,20 @@ function ServiceProviders() {
               <span className="w-24">Police</span>
             </div>
           </button>
-          <button
+          <a
+            href="tel:122"
             onClick={() => handleButton("frsc")}
             className={
-              serviceName === "frsc" ? "sm:bg-red-300 sm:text-black sm:rounded-3xl sm:mr-4 cursor-pointer" : "cursor-pointer"
+              serviceName === "frsc"
+                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl sm:mr-4 cursor-pointer"
+                : "cursor-pointer"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center ">
               <div
                 className={
                   serviceName === "frsc"
-                    ? "shadow-md  bg-white sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    ? "shadow-md  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
                     : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -114,18 +147,22 @@ function ServiceProviders() {
               </div>
               <span className="w-24">FRSC</span>
             </div>
-          </button>
-          <button
+          </a>
+          <a
+            href="tel:+2348132222105"
+            id=""
             onClick={() => handleButton("sss")}
             className={
-              serviceName === "sss" ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer" : "cursor-pointer"
+              serviceName === "sss"
+                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                : "cursor-pointer"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center sm:-ml-3">
               <div
                 className={
                   serviceName === "sss"
-                    ? "shadow-md  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    ? "shadow-md  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
                     : "shadow-md  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -141,18 +178,21 @@ function ServiceProviders() {
                 State Sec. Service
               </span>
             </div>
-          </button>
-          <button
+          </a>
+          <a
+            href="tel:112"
             onClick={() => handleButton("ncc")}
             className={
-              serviceName === "ncc" ? "sm:bg-red-300 sm:text-black rounded-3xl cursor-pointer" : "cursor-pointer"
+              serviceName === "ncc"
+                ? "sm:bg-red-300 sm:text-black rounded-3xl cursor-pointer"
+                : "cursor-pointer"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center ">
               <div
                 className={
                   serviceName === "ncc"
-                    ? "shadow  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
                     : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -160,18 +200,21 @@ function ServiceProviders() {
               </div>
               <span className="w-24">NCC</span>
             </div>
-          </button>
-          <button
+          </a>
+          <a
+            href="tel:+234803347868"
             onClick={() => handleButton("ndlea")}
             className={
-              serviceName === "ndlea" ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer" : "cursor-pointer"
+              serviceName === "ndlea"
+                ? "sm:bg-red-300 sm:text-black sm:rounded-3xl cursor-pointer"
+                : "cursor-pointer"
             }
           >
             <div className="flex flex-col flex-wrap justify-center items-center text-center">
               <div
                 className={
                   serviceName === "ndlea"
-                    ? "shadow  bg-white sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
+                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none border-0 h-24 w-24 rounded-3xl flex justify-center items-center"
                     : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -179,8 +222,9 @@ function ServiceProviders() {
               </div>
               <span className="w-24">NDLEA</span>
             </div>
-          </button>
-          <button
+          </a>
+          <a
+            href="tel:+2348037326662"
             onClick={() => handleButton("eswama")}
             className={
               serviceName === "eswama"
@@ -192,7 +236,7 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "eswama"
-                    ? "shadow  bg-white sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
+                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24 border-0 rounded-3xl flex justify-center items-center"
                     : "shadow  bg-white sm:shadow sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -200,8 +244,9 @@ function ServiceProviders() {
               </div>
               <span className="w-24">ESWAMA</span>
             </div>
-          </button>
-          <button
+          </a>
+          <a
+            href="tel:080002255372"
             onClick={() => handleButton("erAfrica")}
             className={
               serviceName === "erAfrica"
@@ -213,7 +258,7 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "erAfrica"
-                    ? "shadow  bg-white sm:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
+                    ? "shadow  bg-white sm:bg-opacity-0 sm:shadow-none h-24 w-24  border-0 rounded-3xl flex justify-center items-center"
                     : "shadow  bg-white sm:shadow-none sm:border-2 sm:border-red-700 rounded-3xl sm:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -221,7 +266,7 @@ function ServiceProviders() {
               </div>
               <span>E.R Africa</span>
             </div>
-          </button>
+          </a>
         </div>
         <div
           className={
@@ -231,11 +276,7 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div
-            className={
-              serviceName === "ambulance" ? "pl-20" : "hidden"
-            }
-          >
+          <div className={serviceName === "ambulance" ? "pl-20" : "hidden"}>
             <span className="block">Memphis Ambulance Response Team</span>
             <span className="text-[#B33625]">Contact: +234067157635</span>
           </div>
@@ -266,7 +307,11 @@ function ServiceProviders() {
             <span className="text-[#B33625]">Contact: +2348032003702</span>
           </div>
         </div>
-        <div className={serviceName === "frsc" ? "hidden sm:block w-5/12" : "hidden"}>
+        <div
+          className={
+            serviceName === "frsc" ? "hidden sm:block w-5/12" : "hidden"
+          }
+        >
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
@@ -275,7 +320,11 @@ function ServiceProviders() {
             <span className="text-[#B33625]">Contact: 122</span>
           </div>
         </div>
-        <div className={serviceName === "sss" ? "hidden sm:block w-5/12" : "hidden"}>
+        <div
+          className={
+            serviceName === "sss" ? "hidden sm:block w-5/12" : "hidden"
+          }
+        >
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
@@ -284,7 +333,11 @@ function ServiceProviders() {
             <span className="text-[#B33625]">Contact: +2348132222105</span>
           </div>
         </div>
-        <div className={serviceName === "ncc" ? "hidden sm:block w-5/12" : "hidden"}>
+        <div
+          className={
+            serviceName === "ncc" ? "hidden sm:block w-5/12" : "hidden"
+          }
+        >
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
@@ -294,7 +347,9 @@ function ServiceProviders() {
           </div>
         </div>
         <div
-          className={serviceName === "ndlea" ? "hidden sm:block w-5/12" : "hidden"}
+          className={
+            serviceName === "ndlea" ? "hidden sm:block w-5/12" : "hidden"
+          }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
@@ -305,7 +360,9 @@ function ServiceProviders() {
           </div>
         </div>
         <div
-          className={serviceName === "eswama" ? "hidden sm:block w-5/12" : "hidden"}
+          className={
+            serviceName === "eswama" ? "hidden sm:block w-5/12" : "hidden"
+          }
         >
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts

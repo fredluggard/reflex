@@ -4,8 +4,10 @@ import NavBar from '../components/NavBar'
 
 function ServiceProvidersPage() {
   return (
-    <div className='w-screen h-screen hidden sm:block'>
+    <div className='bg-mobile-bg sm:bg:desktop-bg w-screen h-screen hidden sm:block'>
+        <div>
               <NavBar />
+        </div>
         <ServiceProviders />
     </div>
   )
