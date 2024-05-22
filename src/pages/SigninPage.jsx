@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
@@ -17,21 +17,20 @@ function SigninPage() {
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const history = useHistory();
+  const history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://reflex1-3.onrender.com/api/user/login",
+        "https://rxe-lphv.onrender.com/auth/login",
         {
           email: email,
           password: password,
         }
       );
       console.log("Login Successful:", response.data);
-      // history.push("/");
+      history.push("/");
     } catch (error) {
       console.error("Login failed:", error.message);
     }

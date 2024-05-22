@@ -19,8 +19,6 @@ function ServiceProviders() {
 
   const widthSize = window.innerWidth;
 
-  
-
   return (
     <div>
       <div className="flex justify-center items-center mt-4">
@@ -37,7 +35,7 @@ function ServiceProviders() {
               <div
                 className={
                   serviceName === "ambulance"
-                    ? "shadow-md md:shadow-none h-24 w-24 flex justify-center items-center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "
+                    ? "shadow-md md:shadow-none h-24 w-24 flex justify-center items-center"
                     : " shadow-md md:shadow-none md:border-2 md:border-[#DC1D2DE6] md:rounded-full h-24 w-24 flex justify-center items-center"
                 }
               >
@@ -122,7 +120,7 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href= {widthSize >= 768 ? "#" : "tel:+2348132222105"}
+            href={widthSize >= 768 ? "#" : "tel:+2348132222105"}
             onClick={() => handleButton("sss")}
             className={
               serviceName === "sss"
@@ -152,7 +150,7 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href= {widthSize >= 768 ? "#" :"tel:112"}
+            href={widthSize >= 768 ? "#" : "tel:112"}
             onClick={() => handleButton("ncc")}
             className={
               serviceName === "ncc"
@@ -174,7 +172,7 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href={ widthSize >= 768 ? "#" : "tel:+234803347868"}
+            href={widthSize >= 768 ? "#" : "tel:+234803347868"}
             onClick={() => handleButton("ndlea")}
             className={
               serviceName === "ndlea"
@@ -218,7 +216,7 @@ function ServiceProviders() {
             </div>
           </a>
           <a
-            href={ widthSize >= 768 ? "#" : "tel:080002255372"}
+            href={widthSize >= 768 ? "#" : "tel:080002255372"}
             onClick={() => handleButton("erAfrica")}
             className={
               serviceName === "erAfrica"

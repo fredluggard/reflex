@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImMail4 } from "react-icons/im";
@@ -12,6 +12,7 @@ function SignUp() {
   const img1 = "images/signup-1.png";
   const img2 = "images/signup-2.png";
   const img3 = "images/signup-3.png";
+  const history = useNavigate();
 
   const [render, setRender] = useState("one");
   const [showPassword, setShowPassword] = useState(false);
@@ -20,20 +21,38 @@ function SignUp() {
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [name, setName] = useState("");
+
+  const validatePassword = (input) => {
+    const hasUpperCase = /[A-Z]/.test(input);
+    const hasLowerCase = /[a-z]/.test(input);
+    const hasNumber = /\d/.test(input);
+    return hasUpperCase && hasLowerCase && hasNumber;
+  };
 
   const createUser = async (e) => {
     e.preventDefault();
+    if (!validatePassword(password)) {
+      alert(
+        "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+      );
+      return;
+    }
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters");
+      return;
+    }
     try {
       const response = await axios.post(
-        "https://reflex1-3.onrender.com/api/user/signup",
+        "https://rxe-lphv.onrender.com/auth/signup",
         {
-          username: userName,
+          name: name,
           email: email,
           password: password,
         }
       );
       console.log("Created Successfully:", response.data);
+      history.push("/login");
     } catch (error) {
       console.error("Failed to create user:", error.message);
     }
@@ -49,25 +68,25 @@ function SignUp() {
             </p>
             <div className="flex flex-col items-center justify-center relative top-12">
               <img src="/images/logo.png" alt="logo" />
-              <button className="flex justify-center items-center gap-2 bg-[#971B22] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8">
+              <button className="flex justify-center items-center gap-2 bg-[#8C8C8C] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8">
                 <FaFacebook className="h-8 w-8" />
-                <span className="text-sm font-light">
+                <span className="text-md font-light">
                   Sign in with Facebook
                 </span>
               </button>
-              <button className="flex justify-center items-center gap-2 bg-[#971B22] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8">
+              <button className="flex justify-center items-center gap-2 bg-[#8C8C8C] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8">
                 <FcGoogle className="h-8 w-8" />
-                <span className="text-sm font-light">Sign in with Google</span>
+                <span className="text-md font-light">Sign in with Google</span>
               </button>
               <p className="mt-4 text-[#971B22] text-md">
                 or sign in via email
               </p>
               <button
-                className="flex justify-center items-center gap-2 bg-[#971B22] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8"
+                className="flex justify-center items-center gap-2 bg-[#8C8C8C] text-white font-bold py-2 px-4 rounded-3xl w-full h-12 mt-8"
                 onClick={() => setRender("three")}
               >
                 <ImMail4 className="h-8 w-8" />
-                <span className="text-sm font-light">Sign up with Email</span>
+                <span className="text-md font-light">Sign up with Email</span>
               </button>
               <p className="mt-4 text-sm text-[#971B22] text-center">
                 By joining, you agree to Reflex's{" "}
@@ -81,8 +100,29 @@ function SignUp() {
               Sign up with Email
             </h1>
             <form onSubmit={createUser} className="flex flex-col w-full">
+              <label
+                className="text-black text-md font-semibold"
+                htmlFor="name"
+              >
+                Name
+              </label>
               <input
-                className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
+                className="h-10 text-md px-3 my-2 mb-4 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label
+                className="text-black text-md font-semibold"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="h-10 text-md px-3 my-2 mb-4 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
                 type="email"
                 id="email"
                 name="email"
@@ -90,24 +130,21 @@ function SignUp() {
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="Username"
-                required
-                onChange={(e) => setUserName(e.target.value)}
-                className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
-              />
-              <p className="text-sm mb-4 px-3 text-[#971B22]">
-                Your username will be public and you will not be able to change
-                it.
-              </p>
+              <label
+                className="text-black text-md font-semibold"
+                htmlFor="password"
+              >
+                Password
+              </label>
               <div className="flex w-full relative mb-1">
                 <input
+                  className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
+                  id="password"
+                  name="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-10 text-md px-3 my-2 outline-[#971B22] w-full text-black rounded-2xl border-[1px] border-[#971B22]"
                 />
                 <span
                   className="absolute text-[#971B22] text-xl right-0 top-4 flex items-center pr-3 cursor-pointer"
@@ -126,7 +163,7 @@ function SignUp() {
               >
                 Sign Up
               </button>
-              <p className="text-[#971B22]">
+              <p className="text-[#971B22] text-center">
                 By joining, you agree to Reflex's{" "}
                 <Link
                   className="text-sm mb-4 text-red-500 w-full text-end opacity-70"
@@ -149,7 +186,7 @@ function SignUp() {
           <h1 className="font-bold text-2xl">Create an account</h1>
           <p className="font-medium text-lg mb-8">Let's set you all up</p>
           <label className="font-medium text-md" htmlFor="name">
-            Name
+            Name:
           </label>
           <input
             className="bg-[#e6e7e9] border-[#e6e7e9] border-2 outline-[#B33625] px-2 mb-4 rounded-md h-12 w-[80%]"
@@ -158,9 +195,10 @@ function SignUp() {
             id="name"
             placeholder="Nahzarh Okafor"
             required
+            onChange={(e) => setName(e.target.value)}
           />
           <label className="font-medium text-md" htmlFor="email">
-            Email
+            Email:
           </label>
           <input
             className="bg-[#e6e7e9] border-[#e6e7e9] border-2 outline-[#B33625] px-2 mb-4 rounded-md h-12 w-[80%]"
@@ -169,9 +207,10 @@ function SignUp() {
             id="email"
             placeholder="youremail@gmail.com"
             required
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="font-medium text-md" htmlFor="password">
-            Password
+            Password:
           </label>
           <div className="flex w-[80%] relative mb-1">
             <input

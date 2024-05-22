@@ -10,7 +10,6 @@ import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
 import AccountPreference from "./pages/AccountPreference";
 import ServiceProvidersPage from "./pages/ServiceProvidersPage";
-import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AllMaps from "./pages/AllMaps";
@@ -19,17 +18,21 @@ import FireService from "./pages/FireService";
 import PoliceMap from "./pages/PoliceMap";
 import FrscMap from "./pages/FrscMap";
 import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
+import DomesticViolence from "./components/DomesticViolence";
+import EmergencyContact from "./components/EmergencyContact";
+import SubstanceAbuse from "./components/SubstanceAbuse";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
-    element: <HomePage />,
+    path: "/test",
+    element: <App />,
   },
+
   {
     path: "/resources",
     element: <ResourcesPage />,
@@ -54,7 +57,7 @@ const router = createBrowserRouter([
     path: "/tracking",
     element: <AllMaps />,
   },
-  
+
   {
     path: "/serviceproviders",
     element: <ServiceProvidersPage />,
@@ -79,7 +82,18 @@ const router = createBrowserRouter([
     path: "/frsc",
     element: <FrscMap />,
   },
-  
+  {
+    path: "/domestic-violence",
+    element: <DomesticViolence />,
+  },
+  {
+    path: "/emergency-contacts",
+    element: <EmergencyContact />,
+  },
+  {
+    path: "/substance-abuse",
+    element: <SubstanceAbuse />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
