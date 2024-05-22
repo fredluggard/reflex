@@ -9,7 +9,6 @@ function App() {
       <div className="bg-mobile-bg md:bg-desktop-bg">
         <NavBar />
         <Footer />
-        <div className="hidden w-[50vw] md:block"></div>
       </div>
     </div>
   );
