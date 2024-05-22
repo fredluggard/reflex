@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <div className="bg-mobile-bg">
         <NavBar />
-        <EmergencyContacts />
         <Footer />
         <div className="hidden w-[50vw] md:block"></div>
       </div>
