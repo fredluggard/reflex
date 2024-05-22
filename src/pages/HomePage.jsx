@@ -10,7 +10,7 @@ function HomePage() {
       <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="relative h-full w-full gap-10 flex flex-col justify-between bg-mobile-bg">
+      <div className="relative h-full w-full gap-10 flex flex-col justify-between bg-mobile-bg md:bg-desktop-bg">
         <SearchBar />
         <HomepageHotlines />
         <section className="relative">
