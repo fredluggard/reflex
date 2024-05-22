@@ -18,6 +18,9 @@ import FireService from "./pages/FireService";
 import PoliceMap from "./pages/PoliceMap";
 import FrscMap from "./pages/FrscMap";
 import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
+import DomesticViolence from "./components/DomesticViolence";
+import EmergencyContact from "./components/EmergencyContact";
+import SubstanceAbuse from "./components/SubstanceAbuse";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +81,18 @@ const router = createBrowserRouter([
   {
     path: "/frsc",
     element: <FrscMap />,
+  },
+  {
+    path: "/domestic-violence",
+    element: <DomesticViolence />,
+  },
+  {
+    path: "/emergency-contacts",
+    element: <EmergencyContact />,
+  },
+  {
+    path: "/substance-abuse",
+    element: <SubstanceAbuse />,
   },
 ]);
 
