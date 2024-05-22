@@ -46,7 +46,7 @@ function SignUp() {
       const response = await axios.post(
         "https://rxe-lphv.onrender.com/auth/signup",
         {
-          username: name,
+          name: name,
           email: email,
           password: password,
         }

@@ -10,7 +10,6 @@ import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
 import AccountPreference from "./pages/AccountPreference";
 import ServiceProvidersPage from "./pages/ServiceProvidersPage";
-import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AllMaps from "./pages/AllMaps";
@@ -23,13 +22,14 @@ import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
-    element: <HomePage />,
+    path: "/test",
+    element: <App />,
   },
+
   {
     path: "/resources",
     element: <ResourcesPage />,
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     path: "/tracking",
     element: <AllMaps />,
   },
-  
+
   {
     path: "/serviceproviders",
     element: <ServiceProvidersPage />,
@@ -79,7 +79,6 @@ const router = createBrowserRouter([
     path: "/frsc",
     element: <FrscMap />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
