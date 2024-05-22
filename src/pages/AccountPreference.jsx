@@ -56,7 +56,7 @@ function AccountPreference() {
   };
 
   return (
-    <div className="flex flex-col-reverse w-[98%] md:flex-row justify-evenly md:mx-4 md:my-8 text-xs md:text-base">
+    <div className="flex flex-col-reverse w-[98%] md:flex-row justify-evenly md:mx-4 md:my-8 text-lg md:text-base">
       <Settings />
       <div className="md:bg-[#F5F5F5] rounded md:pt-24 md:pb-72 px-4 md:w-[70%]">
         <div className="flex w-[100%] justify-center md:justify-start items-center gap-4 mb-12">
@@ -126,11 +126,11 @@ function AccountPreference() {
               />
             </div>
           </div>
-          <div className="flex w-[100%] justify-between mb-8">
+          <div className="flex w-[100%] justify-evenly mb-8">
             <FaCircleXmark
               type="button"
               onClick={handleCancel}
-              className="w-8 md:w-0 md:hidden cursor-pointer"
+              className="w-10 h-10 md:w-0 md:hidden cursor-pointer"
             />
             <button
               type="button"
@@ -141,7 +141,7 @@ function AccountPreference() {
             </button>
             <FaCircleCheck
               type="button"
-              className="w-8 md:hidden cursor-pointer"
+              className="w-10 h-10 md:hidden cursor-pointer"
             />
             <button
               type="submit"
