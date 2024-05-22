@@ -9,8 +9,12 @@ import ImageCarousel from "./components/ImageCarousel";
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
   
       <div className="bg-mobile-bg">
+=======
+      <div className="bg-mobile-bg md:bg-desktop-bg">
+>>>>>>> develop
         <NavBar />
         <Footer />
 

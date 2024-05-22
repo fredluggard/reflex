@@ -38,7 +38,7 @@ function SigninPage() {
   };
 
   return (
-    <div className="bg-mobile-bg h-screen bg:cover md:bg-contain bg-center">
+    <div className="bg-mobile-bg md:bg-desktop-bg h-screen bg:cover md:bg-contain bg-center">
       <div className="md:hidden relative flex flex-col justify-center items-center p-4 pt-10 h-[100vh] text-[#971B22] py-6 bg-mobile-bg">
         <div className="flex flex-col justify-center items-center relative top-4">
           <h2 className="text-2xl font-bold mt-4 mb-1">Welcome back</h2>

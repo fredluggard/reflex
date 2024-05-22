@@ -14,6 +14,7 @@ function ResourcesPage() {
       <nav className="hidden md:block">
         <NavBar />
       </nav>
+<<<<<<< HEAD
       <div className="flex flex-col items-start bg-mobile text-2xl mt-10 px-4 md:px-24 font-bold">
         <h1 className="text-center mb-6">Quick Tips & Resources</h1>
       </div>
@@ -43,6 +44,10 @@ function ResourcesPage() {
           <img src={phoneCall} alt='Phone Call' className="w-full h-auto"/>
           <p className='emergency-tips text-center mt-2'>Emergency contacts</p>
         </div>
+=======
+      <div className="bg-mobile-bg md:bg-desktop-bg">
+        <h1>Resources Page</h1>
+>>>>>>> develop
       </div>
     </div>
   );

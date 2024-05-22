@@ -8,10 +8,17 @@ import ErrorPage from "./pages/ErrorPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
-import ProfilePage from "./pages/ProfilePage";
-import OtherHotlines from "./components/otherHotlines";
+import AccountPreference from "./pages/AccountPreference";
+import ServiceProvidersPage from "./pages/ServiceProvidersPage";
+import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
+import AllMaps from "./pages/AllMaps";
+import AmbulanceMap from "./pages/AmbulanceMap";
+import FireService from "./pages/FireService";
+import PoliceMap from "./pages/PoliceMap";
+import FrscMap from "./pages/FrscMap";
+import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
 
 const router = createBrowserRouter([
   {
@@ -41,12 +48,38 @@ const router = createBrowserRouter([
   },
   {
     path: "/userprofile",
-    element: <ProfilePage />,
+    element: <AccountPreference />,
   },
   {
-    path: "/otherhotlines",
-    element: <OtherHotlines />,
+    path: "/tracking",
+    element: <AllMaps />,
   },
+  
+  {
+    path: "/serviceproviders",
+    element: <ServiceProvidersPage />,
+  },
+  {
+    path: "/emergencyhotlines",
+    element: <EmergencyHotlinesPage />,
+  },
+  {
+    path: "/hospitals",
+    element: <AmbulanceMap />,
+  },
+  {
+    path: "/firestations",
+    element: <FireService />,
+  },
+  {
+    path: "/policestations",
+    element: <PoliceMap />,
+  },
+  {
+    path: "/frsc",
+    element: <FrscMap />,
+  },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
