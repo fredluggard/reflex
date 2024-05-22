@@ -2,8 +2,6 @@ import "./App.css";
 import "./style/style.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import EmergencyContacts from "./pages/EmergencyContacts";
-
 
 function App() {
   return (
