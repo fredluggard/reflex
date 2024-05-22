@@ -6,20 +6,25 @@ import MainMenu from "../components/MainMenu";
 
 function HomePage() {
   return (
-    <div className="h-screen  bg-mobile-bg md:bg-desktop-bg">
-      <nav className=" md:block ">
+    <div className="relative mx-4 h-screen bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
+      <nav className="hidden md:block">
         <NavBar />
       </nav>
-      <div className="relative h-full w-full gap-10 flex flex-col justify-between px-6">
-        <section className="">
-          <div className=" mt-4 flex flex-col gap-6">
-            <SearchBar />
-            <HomepageHotlines />
-          </div>
-        </section>
-        <section className="relative">
-          <MainMenu />
-        </section>
+      <div className="md:hidden py-4">
+        <img
+          src="/images/logo.png"
+          style={{ width: "150px", height: "40px" }}
+          alt="logo"
+        />
+      </div>
+      <div className="md:hidden">
+        <SearchBar />
+      </div>
+      <div className="md:hidden">
+        <HomepageHotlines />
+      </div>
+      <div className="md:hidden">
+        <MainMenu />
       </div>
     </div>
   );
