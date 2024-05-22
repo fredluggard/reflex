@@ -10,15 +10,10 @@ function NavBar() {
   };
   return (
     <div>
-<<<<<<< HEAD
-      <header className="px-6 pb-3 pt-16 border-b-2 border-black text-white ">
-        <nav className="flex items-center justify-between ">
-=======
       <header className="px-12 pb-4 pt-8 text-white ">
         <nav className="hidden md:flex items-center justify-between">
->>>>>>> 8c34f943fc30bf887b663e07d787906c7ff61f3a
           <img src="/images/logo.png" width="85" alt="logo" />
-          <ul className="hidden md:flex space-x-20 text-black ">
+          <ul className="hidden md:flex space-x-20 text-black">
             <li>
               <NavLink
                 to="/"
