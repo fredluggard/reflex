@@ -9,7 +9,8 @@ import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
 import AccountPreference from "./pages/AccountPreference";
-import OtherHotlines from "./components/otherHotlines";
+import ServiceProvidersPage from "./pages/ServiceProvidersPage";
+import ServiceProviders from "./components/ServiceProviders";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AllMaps from "./pages/AllMaps";
@@ -17,6 +18,7 @@ import AmbulanceMap from "./pages/AmbulanceMap";
 import FireService from "./pages/FireService";
 import PoliceMap from "./pages/PoliceMap";
 import FrscMap from "./pages/FrscMap";
+import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
 
 const router = createBrowserRouter([
   {
@@ -52,9 +54,14 @@ const router = createBrowserRouter([
     path: "/tracking",
     element: <AllMaps />,
   },
+  
   {
-    path: "/otherhotlines",
-    element: <OtherHotlines />,
+    path: "/serviceproviders",
+    element: <ServiceProvidersPage />,
+  },
+  {
+    path: "/emergencyhotlines",
+    element: <EmergencyHotlinesPage />,
   },
   {
     path: "/hospitals",
@@ -72,6 +79,7 @@ const router = createBrowserRouter([
     path: "/frsc",
     element: <FrscMap />,
   },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
