@@ -5,7 +5,7 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import { Icon } from "leaflet";
 import L from "leaflet";
 import useGeoLocation from "../hooks/useGeoLocation";
-import GeoCoder from "./GeoCoder";
+// import GeoCoder from "./GeoCoder";
 import Routing from "./Routing";
 
 function GeoMap(props) {
@@ -55,40 +55,44 @@ function GeoMap(props) {
         <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" />
 
         {/* Ambulance Services */}
-        {props.ambulanceMarkers.map((marker) => (
-          <Marker position={marker.geocode} icon={ambulanceIcon}>
-            <Popup>
-              <p className="font-bold">{marker.popUp}</p>
-            </Popup>
-          </Marker>
-        ))}
+        {props.ambulanceMarkers &&
+          props.ambulanceMarkers.map((marker) => (
+            <Marker position={marker.geocode} icon={ambulanceIcon}>
+              <Popup>
+                <p className="font-bold">{marker.popUp}</p>
+              </Popup>
+            </Marker>
+          ))}
 
         {/* Police Services */}
-        {props.policeMarkers.map((marker) => (
-          <Marker position={marker.geocode} icon={policeIcon}>
-            <Popup>
-              <p className="font-bold">{marker.popUp}</p>
-            </Popup>
-          </Marker>
-        ))}
+        {props.policeMarkers &&
+          props.policeMarkers.map((marker) => (
+            <Marker position={marker.geocode} icon={policeIcon}>
+              <Popup>
+                <p className="font-bold">{marker.popUp}</p>
+              </Popup>
+            </Marker>
+          ))}
 
         {/* Road Safety */}
-        {props.roadSafetyMarkers.map((marker) => (
-          <Marker position={marker.geocode} icon={roadSafetyIcon}>
-            <Popup>
-              <p className="font-bold">{marker.popUp}</p>
-            </Popup>
-          </Marker>
-        ))}
+        {props.roadSafetyMarkers &&
+          props.roadSafetyMarkers.map((marker) => (
+            <Marker position={marker.geocode} icon={roadSafetyIcon}>
+              <Popup>
+                <p className="font-bold">{marker.popUp}</p>
+              </Popup>
+            </Marker>
+          ))}
 
         {/* Fire Service */}
-        {props.fireServiceMarkers.map((marker) => (
-          <Marker position={marker.geocode} icon={fireServiceIcon}>
-            <Popup>
-              <p className="font-bold">{marker.popUp}</p>
-            </Popup>
-          </Marker>
-        ))}
+        {props.fireServiceMarkers &&
+          props.fireServiceMarkers.map((marker) => (
+            <Marker position={marker.geocode} icon={fireServiceIcon}>
+              <Popup>
+                <p className="font-bold">{marker.popUp}</p>
+              </Popup>
+            </Marker>
+          ))}
 
         {/* User location */}
         {location.loaded && !location.error && (
@@ -101,7 +105,6 @@ function GeoMap(props) {
             </Popup>
           </Marker>
         )}
-        {/* Customizable Pin */}
 
         {/* <GeoCoder /> */}
         <Routing />

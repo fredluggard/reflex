@@ -8,22 +8,31 @@ import ErrorPage from "./pages/ErrorPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import ResetPassword from "./pages/ResetPassword";
-import ProfilePage from "./pages/ProfilePage";
-import OtherHotlines from "./components/otherHotlines";
+import AccountPreference from "./pages/AccountPreference";
+import ServiceProvidersPage from "./pages/ServiceProvidersPage";
 import HomePage from "./pages/HomePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AllMaps from "./pages/AllMaps";
+import AmbulanceMap from "./pages/AmbulanceMap";
+import FireService from "./pages/FireService";
+import PoliceMap from "./pages/PoliceMap";
+import FrscMap from "./pages/FrscMap";
+import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
+import DomesticViolence from "./components/DomesticViolence";
+import EmergencyContact from "./components/EmergencyContact";
+import SubstanceAbuse from "./components/SubstanceAbuse";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
-    element: <HomePage />,
+    path: "/test",
+    element: <App />,
   },
+
   {
     path: "/resources",
     element: <ResourcesPage />,
@@ -42,15 +51,48 @@ const router = createBrowserRouter([
   },
   {
     path: "/userprofile",
-    element: <ProfilePage />,
+    element: <AccountPreference />,
   },
   {
     path: "/tracking",
     element: <AllMaps />,
   },
+
   {
-    path: "/otherhotlines",
-    element: <OtherHotlines />,
+    path: "/serviceproviders",
+    element: <ServiceProvidersPage />,
+  },
+  {
+    path: "/emergencyhotlines",
+    element: <EmergencyHotlinesPage />,
+  },
+  {
+    path: "/hospitals",
+    element: <AmbulanceMap />,
+  },
+  {
+    path: "/firestations",
+    element: <FireService />,
+  },
+  {
+    path: "/policestations",
+    element: <PoliceMap />,
+  },
+  {
+    path: "/frsc",
+    element: <FrscMap />,
+  },
+  {
+    path: "/domestic-violence",
+    element: <DomesticViolence />,
+  },
+  {
+    path: "/emergency-contacts",
+    element: <EmergencyContact />,
+  },
+  {
+    path: "/substance-abuse",
+    element: <SubstanceAbuse />,
   },
 ]);
 
