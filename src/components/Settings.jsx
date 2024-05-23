@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCog, FaUserAlt, FaInfoCircle, FaSignOutAlt } from "react-icons/fa";
+import axios from "axios";
 
 function Settings() {
   const [activeOption, setActiveOption] = useState(null);
@@ -11,9 +12,17 @@ function Settings() {
 
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Clear authentication data (e.g., tokens)
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        "https://rxe-lphv.onrender.com/auth/logout"
+      );
+      console.log("You've been logged out", response.data);
+      navigate("/");
+    } catch (error) {
+      console.error("Failed to log out:", error.message);
+      throw error;
+    }
   };
 
   return (
@@ -30,7 +39,7 @@ function Settings() {
             className="hidden md:flex pr-2"
           />
           <Link
-            to="/account-preferences"
+            to="/accountpreference"
             onClick={() => handleOptionClick("Accountpreference")}
             className={`hover:text-[#D00000] ${
               activeOption === "Accountpreference" ? "text-[#D00000]" : ""
@@ -47,7 +56,7 @@ function Settings() {
             className="hidden md:flex pr-2"
           />
           <Link
-            to="/emergency-contacts"
+            to="/emergencycontacts"
             onClick={() => handleOptionClick("Emergencycontacts")}
             className={`hover:text-[#D00000] ${
               activeOption === "Emergencycontacts" ? "text-[#D00000]" : ""

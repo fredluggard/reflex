@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/style.css";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 
 function NavBar() {
-  const [activeLink, setActiveLink] = useState(null);
+  const { isLoggedIn, isVerified, activeLink, setActiveLink } = useAuth();
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -60,34 +61,45 @@ function NavBar() {
             </li>
           </ul>
           <div className="flex">
-            <ul className="hidden md:flex space-x-10">
-              <li className="text-black border border-[#971B22] px-6 py-2 rounded-3xl hover:bg-[#971B22] hover:text-white transition duration-300">
-                <NavLink
-                  to="/login"
-                  onClick={() => handleLinkClick("Login")}
-                  className={activeLink === "Login" ? "text-[#971B22]" : ""}
-                >
-                  Log in
+            {" "}
+            {isLoggedIn ? (
+              <div className="flex gap-4 justify-center items-center">
+                <NavLink to="/userprofile">
+                  <img
+                    src="/images/user-profile-pic.png"
+                    width="30"
+                    alt="user-profile-pic"
+                    className="flex self-end"
+                  />
                 </NavLink>
-              </li>
-              <li className="bg-red-800 px-4 py-2 rounded-3xl hover:bg-white hover:text-[#971B22] transition duration-300">
-                <NavLink
-                  to="/signup"
-                  onClick={() => handleLinkClick("Sign up")}
-                  className={activeLink === "Sign up" ? "text-[#971B22]" : ""}
-                >
-                  Sign up
-                </NavLink>
-              </li>
-            </ul>
-            <NavLink to="/userprofile">
-              <img
-                src="/images/user-profile-pic.png"
-                width="30"
-                alt="user-profile-pic"
-                className="flex self-end md:hidden"
-              />
-            </NavLink>
+                <button className="bg-red-800 px-4 py-2 rounded-3xl border-[1px] border-[#971B22] hover:bg-white hover:border-[1px] hover:border-[#971b22] hover:text-[#971B22]">
+                  <NavLink to="/wallet" className="">
+                    {isVerified ? "Verified" : "Verify User"}
+                  </NavLink>
+                </button>
+              </div>
+            ) : (
+              <ul className="hidden md:flex space-x-10">
+                <li className="text-black border border-[#971B22] px-6 py-2 rounded-3xl hover:bg-[#971B22] hover:text-white transition duration-300">
+                  <NavLink
+                    to="/login"
+                    onClick={() => handleLinkClick("Login")}
+                    className={activeLink === "Login" ? "text-[#971B22]" : ""}
+                  >
+                    Log in
+                  </NavLink>
+                </li>
+                <li className="bg-red-800 px-4 py-2 rounded-3xl hover:bg-white hover:border-[1px] hover:border-[#971b22] hover:text-[#971B22] transition duration-300">
+                  <NavLink
+                    to="/signup"
+                    onClick={() => handleLinkClick("Sign up")}
+                    className={activeLink === "Sign up" ? "text-[#971B22]" : ""}
+                  >
+                    Sign up
+                  </NavLink>
+                </li>
+              </ul>
+            )}
           </div>
         </nav>
       </header>

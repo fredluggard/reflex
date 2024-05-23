@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Settings from "../components/Settings";
 import { FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
@@ -13,6 +13,15 @@ function AccountPreference() {
   };
 
   const [userData, setUserData] = useState(initialFormState);
+  const [token, setToken] = useState("");
+
+  // Fetch the token from local storage or context when the component mounts
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token"); // Adjust the key as per your storage setup
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,25 +34,27 @@ function AccountPreference() {
   const updateProfile = async (userData) => {
     try {
       const response = await axios.put(
-        "https://reflex1-3.onrender.com/api/user/profile",
+        "https://es-be-10-2.onrender.com/api/user/profile",
         userData,
         {
           headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${token}`, // Include the token in the header
           },
         }
       );
       console.log("Profile updated successfully:", response.data);
       return response.data;
     } catch (error) {
-      console.error("Failed to update profile:", error.message);
+      console.error(
+        "Failed to update profile:",
+        error.response?.data || error.message
+      );
       throw error;
     }
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission
     try {
       const updatedProfile = await updateProfile(userData);
       console.log("Profile updated successfully:", updatedProfile);
@@ -54,11 +65,11 @@ function AccountPreference() {
   };
 
   const handleCancel = () => {
-    setUserData(initialFormState);
+    setUserData(initialFormState); // Reset the form to its initial state
   };
 
   return (
-    <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center ">
+    <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
       <nav className="hidden md:block">
         <NavBar />
       </nav>
@@ -74,11 +85,11 @@ function AccountPreference() {
             />
             <div className="font-light">
               <div className="flex space-x-2 bg-white px-4 py-2 rounded-xl cursor-pointer mb-2">
-                <img src="/images/gallery.png" alt="" />
+                <img src="/images/gallery.png" alt="Change" />
                 <p className="text-sm">Change</p>
               </div>
               <div className="flex space-x-2 bg-white px-4 py-2 rounded-xl cursor-pointer">
-                <img src="/images/trash.png" alt="" />
+                <img src="/images/trash.png" alt="Remove" />
                 <p className="text-sm">Remove</p>
               </div>
             </div>
@@ -119,7 +130,7 @@ function AccountPreference() {
                     className="height-[20%]"
                     alt="Flag"
                   />
-                  <img src="/images/Vector 2.png" alt="" />
+                  <img src="/images/Vector 2.png" alt="Vector" />
                 </div>
                 <input
                   className="border rounded-lg font-light bg-[#F5F5F5] w-full py-4 px-4 mb-6"
@@ -134,11 +145,13 @@ function AccountPreference() {
               </div>
             </div>
             <div className="flex w-[100%] justify-evenly mb-8">
-              <FaCircleXmark
-                type="button"
-                onClick={handleCancel}
-                className="w-10 h-10 md:w-0 md:hidden cursor-pointer"
-              />
+              <button type="button" className="md:hidden">
+                <FaCircleXmark
+                  onClick={handleCancel}
+                  className="w-10 h-10 cursor-pointer"
+                />
+              </button>
+
               <button
                 type="button"
                 className="hidden md:flex border border-[#B33625] text-[#B33625] md:px-44 py-2 rounded-lg"
@@ -146,10 +159,11 @@ function AccountPreference() {
               >
                 Cancel
               </button>
-              <FaCircleCheck
-                type="button"
-                className="w-10 h-10 md:hidden cursor-pointer"
-              />
+
+              <button type="submit" className="md:hidden">
+                <FaCircleCheck className="w-10 h-10 cursor-pointer" />
+              </button>
+
               <button
                 type="submit"
                 className="hidden md:flex border border-[#B33625] md:px-44 py-2 text-[#B33625] rounded-lg"

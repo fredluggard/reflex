@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../style/style.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import ImageCarousel from "../components/ImageCarousel";
 
 function ResetPassword() {
@@ -11,9 +12,20 @@ function ResetPassword() {
   const [getCode, SetGetCode] = useState("one");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     SetGetCode("two");
+    try {
+      const response = await axios.post(
+        "https://rxe-lphv.onrender.com/auth/forgetpassword",
+        {
+          email: email,
+        }
+      );
+      console.log("Code sent Successfully:", response.data);
+    } catch (error) {
+      console.error("Code not sent:", error.message);
+    }
   };
 
   return (
@@ -98,7 +110,7 @@ function ResetPassword() {
                     <p className="text-sm">Didn't receive the code? </p>
                     <Link
                       className="text-sm text-[#971B22] md:text-[#B33625] text-opacity-70"
-                      to=""
+                      onClick={handleSubmit}
                     >
                       Resend
                     </Link>

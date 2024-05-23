@@ -30,7 +30,7 @@ function SigninPage() {
         }
       );
       console.log("Login Successful:", response.data);
-      history.push("/");
+      history("/");
     } catch (error) {
       console.error("Login failed:", error.message);
     }
