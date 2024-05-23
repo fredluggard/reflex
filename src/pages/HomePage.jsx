@@ -21,7 +21,7 @@ function HomePage() {
       <div className="md:hidden">
         <SearchBar />
       </div>
-      <div className=" hidden sm:hidden md:block lg:block mt-10">
+      <div className=" hidden sm:hidden md:block lg:block mt-10 ">
         <ul className="flex justify-end space-x-1">
           <li>
             <button style={{ padding: '5px 15px', fontSize: '16px', borderRadius: '20px', border: '1px solid #ccc', background: 'rgb(255, 178, 178)', color: 'white' }}>All</button>
@@ -44,7 +44,7 @@ function HomePage() {
         <HomepageHotlines />
       </div>
 
-      <div className=" hidden sm:hidden md:block lg:block mt-10 ">
+      <div className=" hidden sm:hidden md:block lg:block mt-12 ">
         <div className="flex justify-evenly gap-6">
           <div className="basis-1/2">
             <div>
