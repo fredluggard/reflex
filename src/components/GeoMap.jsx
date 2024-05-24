@@ -7,6 +7,8 @@ import L from "leaflet";
 import useGeoLocation from "../hooks/useGeoLocation";
 // import GeoCoder from "./GeoCoder";
 import Routing from "./Routing";
+import { Link } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 
 function GeoMap(props) {
   let defaultIcon = L.icon({
@@ -44,71 +46,141 @@ function GeoMap(props) {
   //   const position = [6.4852, 7.5193];
 
   const location = useGeoLocation();
+  const { activeMap, setActiveMap } = useAuth();
+  const handleLinkClick = (link) => {
+    setActiveMap(link);
+  };
 
   return (
-    <div>
-      <MapContainer center={props.location} zoom={props.zoom}>
-        <TileLayer
-          attribution=""
-          url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}@2x.png?key=l2IUqASnkZluj7UFjpyh"
-        />
-        <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" />
+    <div className="relative">
+      <div className="relative top-0 left-0 w-full">
+        <ul className="flex justify-center my-2 mx-2 space-x-1">
+          <li>
+            <button
+              className={`${
+                activeMap === "All"
+                  ? "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#971b22] text-white"
+                  : "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#FFB2B2] text-white"
+              }`}
+              onClick={() => handleLinkClick("All")}
+            >
+              <Link to="/tracking">All</Link>
+            </button>
+          </li>
+          <li>
+            <button
+              className={`${
+                activeMap === "Ambulance"
+                  ? "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#971b22] text-white"
+                  : "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#FFB2B2] text-white"
+              }`}
+              onClick={() => handleLinkClick("Ambulance")}
+            >
+              <Link to="/hospitals">Ambulance</Link>
+            </button>
+          </li>
+          <li>
+            <button
+              className={`${
+                activeMap === "Police"
+                  ? "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#971b22] text-white"
+                  : "py-[5px] px-[15px] text-[12px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#FFB2B2] text-white"
+              }`}
+              onClick={() => handleLinkClick("Police")}
+            >
+              <Link to="/policestations">Police</Link>
+            </button>
+          </li>
+          <li>
+            <button
+              className={`${
+                activeMap === "Fire Service"
+                  ? "py-[5px] px-[15px] text-[10px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#971b22] text-white"
+                  : "py-[5px] px-[15px] text-[10px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#FFB2B2] text-white"
+              }`}
+              onClick={() => handleLinkClick("Fire Service")}
+            >
+              <Link to="/firestations">Fire Service</Link>
+            </button>
+          </li>
+          <li>
+            <button
+              className={`${
+                activeMap === "Road Safety"
+                  ? "py-[5px] px-[15px] text-[10px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#971b22] text-white"
+                  : "py-[5px] px-[15px] text-[10px] md:text-[16px] rounded-[20px] border-[1px] border-[#ccc] bg-[#FFB2B2] text-white"
+              }`}
+              onClick={() => handleLinkClick("Road Safety")}
+            >
+              <Link to="/frsc">Road Safety</Link>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div className="relative">
+        <MapContainer center={props.location} zoom={props.zoom}>
+          <TileLayer
+            attribution=""
+            url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}@2x.png?key=l2IUqASnkZluj7UFjpyh"
+          />
+          <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" />
 
-        {/* Ambulance Services */}
-        {props.ambulanceMarkers &&
-          props.ambulanceMarkers.map((marker) => (
-            <Marker position={marker.geocode} icon={ambulanceIcon}>
+          {/* Ambulance Services */}
+          {props.ambulanceMarkers &&
+            props.ambulanceMarkers.map((marker) => (
+              <Marker position={marker.geocode} icon={ambulanceIcon}>
+                <Popup>
+                  <p className="font-bold">{marker.popUp}</p>
+                </Popup>
+              </Marker>
+            ))}
+
+          {/* Police Services */}
+          {props.policeMarkers &&
+            props.policeMarkers.map((marker) => (
+              <Marker position={marker.geocode} icon={policeIcon}>
+                <Popup>
+                  <p className="font-bold">{marker.popUp}</p>
+                </Popup>
+              </Marker>
+            ))}
+
+          {/* Road Safety */}
+          {props.roadSafetyMarkers &&
+            props.roadSafetyMarkers.map((marker) => (
+              <Marker position={marker.geocode} icon={roadSafetyIcon}>
+                <Popup>
+                  <p className="font-bold">{marker.popUp}</p>
+                </Popup>
+              </Marker>
+            ))}
+
+          {/* Fire Service */}
+          {props.fireServiceMarkers &&
+            props.fireServiceMarkers.map((marker) => (
+              <Marker position={marker.geocode} icon={fireServiceIcon}>
+                <Popup>
+                  <p className="font-bold">{marker.popUp}</p>
+                </Popup>
+              </Marker>
+            ))}
+
+          {/* User location */}
+          {location.loaded && !location.error && (
+            <Marker
+              position={[location.coordinates.lat, location.coordinates.lng]}
+              icon={userIcon}
+            >
               <Popup>
-                <p className="font-bold">{marker.popUp}</p>
+                <p className="font-bold">Current location</p>
               </Popup>
             </Marker>
-          ))}
+          )}
 
-        {/* Police Services */}
-        {props.policeMarkers &&
-          props.policeMarkers.map((marker) => (
-            <Marker position={marker.geocode} icon={policeIcon}>
-              <Popup>
-                <p className="font-bold">{marker.popUp}</p>
-              </Popup>
-            </Marker>
-          ))}
-
-        {/* Road Safety */}
-        {props.roadSafetyMarkers &&
-          props.roadSafetyMarkers.map((marker) => (
-            <Marker position={marker.geocode} icon={roadSafetyIcon}>
-              <Popup>
-                <p className="font-bold">{marker.popUp}</p>
-              </Popup>
-            </Marker>
-          ))}
-
-        {/* Fire Service */}
-        {props.fireServiceMarkers &&
-          props.fireServiceMarkers.map((marker) => (
-            <Marker position={marker.geocode} icon={fireServiceIcon}>
-              <Popup>
-                <p className="font-bold">{marker.popUp}</p>
-              </Popup>
-            </Marker>
-          ))}
-
-        {/* User location */}
-        {location.loaded && !location.error && (
-          <Marker
-            position={[location.coordinates.lat, location.coordinates.lng]}
-            icon={userIcon}
-          >
-            <Popup>
-              <p className="font-bold">Current location</p>
-            </Popup>
-          </Marker>
-        )}
-
-        {/* <GeoCoder /> */}
-        <Routing />
-      </MapContainer>
+          {/* <GeoCoder /> */}
+          <Routing />
+        </MapContainer>
+      </div>
     </div>
   );
 }

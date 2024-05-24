@@ -6,6 +6,7 @@ import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import ImageCarousel from "../components/ImageCarousel";
+import { useAuth } from "../Contexts/AuthContext";
 
 function SigninPage() {
   const img1 = "images/signin-1.png";
@@ -18,6 +19,7 @@ function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useNavigate();
+  const { setIsLoggedIn } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +32,8 @@ function SigninPage() {
         }
       );
       console.log("Login Successful:", response.data);
-      history.push("/");
+      setIsLoggedIn(true);
+      history("/");
     } catch (error) {
       console.error("Login failed:", error.message);
     }
@@ -133,6 +136,8 @@ function SigninPage() {
               name="email"
               id="email"
               placeholder="youremail@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <label className="font-medium text-md" htmlFor="password">
@@ -141,8 +146,11 @@ function SigninPage() {
             <div className="flex w-[80%] relative mb-1">
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
                 placeholder="* * * * * * * *"
                 required
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="bg-[#e6e7e9] border-[#e6e7e9] border-2 outline-[#B33625] px-2 mb-4 rounded-md h-12 w-full"
               />

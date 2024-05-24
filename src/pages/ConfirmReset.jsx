@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../style/style.css";
 import { FaRegCircleCheck } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 import ImageCarousel from "../components/ImageCarousel";
 
 function ConfirmReset() {
@@ -11,11 +12,20 @@ function ConfirmReset() {
   const img2 = "images/signup-2.png";
   const img3 = "images/signup-3.png";
 
+  const validatePassword = (input) => {
+    const hasUpperCase = /[A-Z]/.test(input);
+    const hasLowerCase = /[a-z]/.test(input);
+    const hasNumber = /\d/.test(input);
+    return hasUpperCase && hasLowerCase && hasNumber;
+  };
+
   const [getCode, SetGetCode] = useState("one");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
+
+  const history = useNavigate();
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -25,8 +35,36 @@ function ConfirmReset() {
     setShowPassword2(!showPassword2);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validatePassword(password)) {
+      alert(
+        "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+      );
+      return;
+    }
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters");
+      return;
+    }
+    if (password !== password2) {
+      alert("Passwords do not match");
+      return;
+    }
+    SetGetCode("two");
+    try {
+      const response = await axios.post(
+        `https://rxe-lphv.onrender.com/auth/resetpassword/:`,
+        {
+          password: password,
+          password2: password2,
+        }
+      );
+      console.log("Reset Successful:", response.data);
+      history("/login");
+    } catch (error) {
+      console.error("Reset failed:", error.message);
+    }
   };
   return (
     <div>
@@ -40,7 +78,7 @@ function ConfirmReset() {
             <div>
               <form
                 className="flex flex-col justify-start"
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
               >
                 <label className="my-1 text-md" htmlFor="password">
                   Password
@@ -87,7 +125,6 @@ function ConfirmReset() {
                   className="h-10 text-md px-2 w-full rounded-2xl mt-4 mb-2 text-white bg-[#971B22] border-2 border-[#971B22] md:border-[#B33625] md:h-12 md:w-[80%] md:text-white md:bg-[#B33625] md:rounded-xl"
                   type="submit"
                   value="Reset password"
-                  onClick={() => SetGetCode("two")}
                 />
               </form>
             </div>
@@ -97,7 +134,7 @@ function ConfirmReset() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col px-4 md:w-[30%] justify-around text-[#971B22] md:text-[#B33625]">
+        <div className="flex flex-col m-auto px-4 md:w-[50%] justify-center items-center text-[#971B22] md:text-[#B33625]">
           <div className="flex flex-col justify-center items-center">
             <FaRegCircleCheck className="h-[150px] w-[150px] my-6" />
             <h1 className="font-bold text-center text-2xl">
@@ -108,8 +145,8 @@ function ConfirmReset() {
               account with new password and email address
             </p>
           </div>
-          <Link className="w-full" to="/login">
-            <button className="h-10 text-md px-2 w-full rounded-2xl bg-[#971B22] md:bg-[#B33625] text-white border-1 border-white">
+          <Link className="w-full flex justify-center items-center" to="/login">
+            <button className="h-10 text-md px-2 w-full md:w-[70%] rounded-2xl bg-[#971B22] md:bg-[#B33625] text-white border-1 border-white">
               sign in
             </button>
           </Link>

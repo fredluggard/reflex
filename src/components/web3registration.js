@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ethers } from "ethers";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 import { contractAbi, contractAddress } from "../Contract/constant";
 
 console.log(contractAbi, contractAddress);
@@ -10,6 +12,8 @@ function Web3registration() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [walletAddress, setWalletAddress] = useState("");
   const [error, setError] = useState(null);
+  const history = useNavigate();
+  const { setIsVerified } = useAuth();
 
   const connectWallet = async () => {
     if (window.ethereum) {
@@ -41,6 +45,8 @@ function Web3registration() {
         );
         if (isRegistered) {
           setError("You already registered");
+          setIsVerified(true);
+          history("/");
           return;
         }
 
@@ -49,6 +55,7 @@ function Web3registration() {
         setError("");
         setIsRegistered(true);
         console.log("User registered:", tx);
+        history("/");
       } catch (error) {
         console.error("Error registering user:", error);
       }
@@ -58,17 +65,36 @@ function Web3registration() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>User Registration dApp</h1>
+    <div className="flex justify-center items-center h-screen">
+      <header className="flex flex-col items-center justify-center w-full h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
+        <h1 className="px-4 py-2">
+          To verify yourself, you need to have a Metamask wallet
+        </h1>
         {!signer ? (
-          <button onClick={connectWallet}>Connect Wallet</button>
+          <button
+            className="text-white bg-red-800 m-6 px-4 py-2 rounded-3xl hover:bg-white hover:text-[#971B22] transition duration-300"
+            onClick={connectWallet}
+          >
+            Connect Wallet
+          </button>
         ) : (
-          <button onClick={registerUser}>Register</button>
+          <button
+            className="text-white bg-red-800 m-6 px-4 py-2 rounded-3xl hover:bg-white hover:text-[#971B22] transition duration-300"
+            onClick={registerUser}
+          >
+            Register
+          </button>
         )}
-        {walletAddress && <p>Connected Wallet Address: {walletAddress}</p>}
-        {isRegistered && <p>User successfully registered!</p>}
-        {error && <p style={{ color: "red" }}> {error}</p>}
+        {walletAddress && (
+          <p className="mx-6">Connected Wallet Address: {walletAddress}</p>
+        )}
+        {isRegistered && <p className="mx-6">User successfully registered!</p>}
+        {error && (
+          <p className="mx-6" style={{ color: "red" }}>
+            {" "}
+            {error}
+          </p>
+        )}
       </header>
     </div>
   );

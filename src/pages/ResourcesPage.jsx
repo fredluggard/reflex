@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 function ResourcesPage() {
   return (
     <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
-      <nav className="hidden md:block">
+      <nav>
         <NavBar />
       </nav>
       <div className="flex flex-col items-start bg-mobile text-2xl mt-10 px-4 md:px-24 font-bold">
@@ -22,7 +22,7 @@ function ResourcesPage() {
 
       <div className="quick-tips grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
         <Link>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img src={firstAid} alt="First Aid" className="w-full h-auto" />
             <p className="firstaid-tips text-center mt-2 mx-10 flex items-start">
               First-aid tips
@@ -30,7 +30,7 @@ function ResourcesPage() {
           </div>
         </Link>
         <Link>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img
               src={fireExtinguisher}
               alt="Fire Extinguisher"
@@ -40,19 +40,19 @@ function ResourcesPage() {
           </div>
         </Link>
         <Link>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img src={driver} alt="Driver" className="w-full h-auto" />
             <p className="driver-tips text-center mt-2">Road & driver safety</p>
           </div>
         </Link>
         <Link to="/substance-abuse">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img src={drugs} alt="Drugs" className="w-full h-auto" />
             <p className="drug-tips text-center mt-2">Substance abuse</p>
           </div>
         </Link>
         <Link to="/domestic-violence">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img
               src={motherChild}
               alt="Mother and child"
@@ -62,7 +62,7 @@ function ResourcesPage() {
           </div>
         </Link>
         <Link to="/emergency-contacts">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover:opacity-70">
             <img src={phoneCall} alt="Phone Call" className="w-full h-auto" />
             <p className="emergency-tips text-center mt-2">
               Emergency contacts

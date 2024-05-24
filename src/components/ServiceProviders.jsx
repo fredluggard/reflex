@@ -246,8 +246,10 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "ambulance" ? "pl-20" : "hidden"}>
-            <span className="block">Memphis Ambulance Response Team</span>
+          <div
+            className={serviceName === "ambulance" ? "pl-[110px]" : "hidden"}
+          >
+            <span className="block my-2">Memphis Ambulance Response Team</span>
             <span className="text-[#B33625]">Contact: +234067157635</span>
           </div>
         </div>
@@ -259,8 +261,10 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "fireService" ? "pl-20" : "hidden"}>
-            <span className="block">Enugu State Fire Service</span>
+          <div
+            className={serviceName === "fireService" ? "pl-[110px]" : "hidden"}
+          >
+            <span className="block my-2">Enugu State Fire Service</span>
             <span className="text-[#B33625]">Contact: +2347065409291</span>
           </div>
         </div>
@@ -272,8 +276,8 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "police" ? "pl-20" : "hidden"}>
-            <span className="block">Police</span>
+          <div className={serviceName === "police" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">Police swift response team</span>
             <span className="text-[#B33625]">Contact: +2348032003702</span>
           </div>
         </div>
@@ -285,8 +289,8 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "frsc" ? "pl-20" : "hidden"}>
-            <span className="block">Federal Road Safety Corp</span>
+          <div className={serviceName === "frsc" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">Federal Road Safety Corp</span>
             <span className="text-[#B33625]">Contact: 122</span>
           </div>
         </div>
@@ -298,8 +302,8 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "sss" ? "pl-20" : "hidden"}>
-            <span className="block">State Security Service</span>
+          <div className={serviceName === "sss" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">State Security Service</span>
             <span className="text-[#B33625]">Contact: +2348132222105</span>
           </div>
         </div>
@@ -311,8 +315,10 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "ncc" ? "pl-20" : "hidden"}>
-            <span className="block">Nigerian Communications Commision</span>
+          <div className={serviceName === "ncc" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">
+              Nigerian Communications Commision
+            </span>
             <span className="text-[#B33625]">Contact: 112</span>
           </div>
         </div>
@@ -324,8 +330,10 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "ndlea" ? "pl-20" : "hidden"}>
-            <span className="block">National Drug Law Enforcement Agency</span>
+          <div className={serviceName === "ndlea" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">
+              National Drug Law Enforcement Agency
+            </span>
             <span className="text-[#B33625]">Contact: +234803347868</span>
           </div>
         </div>
@@ -337,8 +345,8 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "eswama" ? "pl-20" : "hidden"}>
-            <span className="block">
+          <div className={serviceName === "eswama" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">
               Enugu State Waste Management Authority
             </span>
             <span className="text-[#B33625]">Contact: +2348037326662</span>
@@ -352,8 +360,8 @@ function ServiceProviders() {
           <h3 className="text-center text-2xl font-bold pl-1">
             Emergency Service Contacts
           </h3>
-          <div className={serviceName === "erAfrica" ? "pl-20" : "hidden"}>
-            <span className="block">Emergency Response Africa </span>
+          <div className={serviceName === "erAfrica" ? "pl-[110px]" : "hidden"}>
+            <span className="block my-2">Emergency Response Africa </span>
             <span className="text-[#B33625]">Contact: 080002255372</span>
           </div>
         </div>

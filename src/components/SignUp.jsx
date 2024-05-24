@@ -52,7 +52,7 @@ function SignUp() {
         }
       );
       console.log("Created Successfully:", response.data);
-      history.push("/login");
+      history("/login");
     } catch (error) {
       console.error("Failed to create user:", error.message);
     }

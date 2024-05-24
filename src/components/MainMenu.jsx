@@ -16,7 +16,7 @@ function MainMenu() {
         <ul className="flex justify-center gap-10">
           <li className="">
             <Link
-              to="#"
+              to="/"
               onClick={() => handleClick("Home")}
               className={isActive === "Home" ? "text-[#960E20]" : ""}
             >
@@ -26,7 +26,7 @@ function MainMenu() {
 
           <li>
             <Link
-              to="#"
+              to="/tracking"
               onClick={() => handleClick("Location")}
               className={isActive === "Location" ? "text-[#960E20]" : ""}
             >
@@ -37,7 +37,7 @@ function MainMenu() {
 
           <li>
             <Link
-              to="#"
+              to="/emergencycontacts"
               onClick={() => handleClick("Call")}
               className={isActive === "Call" ? "text-[#960E20]" : ""}
             >
@@ -47,7 +47,7 @@ function MainMenu() {
 
           <li>
             <Link
-              to="#"
+              to="/resources"
               onClick={() => handleClick("Resource")}
               className={isActive === "Resource" ? "text-[#960E20]" : ""}
             >
