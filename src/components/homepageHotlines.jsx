@@ -38,7 +38,7 @@ function HomepageHotlines() {
             <span className="w-24 text-sm">Police</span>
           </a>
           <div className="relative -top-2 shadow-md bg-blue-100 rounded-l-full w-14 h-14 flex items-center justify-center">
-            <Link to="emergencyhotlines">
+            <Link to="/emergencyhotlines">
               <img src={plusIcon} alt="add" />
             </Link>
           </div>

@@ -4,6 +4,7 @@ import axios from "axios";
 import UserDetails from "../components/UserDetails";
 import EmergencyContactsList from "../components/EmergencyContactsList";
 import { useAuth } from "../Contexts/AuthContext";
+import NavBar from "../components/NavBar";
 
 const defaultUser = {
   name: "Not Available",
@@ -49,6 +50,9 @@ function EmergencyContacts() {
 
   return (
     <div className="px-4">
+      <nav>
+        <NavBar />
+      </nav>
       <div className="px-6 pb-8 md:hidden">
         <img src="/images/Back-arrow.png" alt="" />
       </div>

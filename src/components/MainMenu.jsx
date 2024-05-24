@@ -37,7 +37,7 @@ function MainMenu() {
 
           <li>
             <Link
-              to="#"
+              to="/emergencycontacts"
               onClick={() => handleClick("Call")}
               className={isActive === "Call" ? "text-[#960E20]" : ""}
             >

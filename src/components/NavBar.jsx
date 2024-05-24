@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/style.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 
 function NavBar() {
@@ -11,9 +11,11 @@ function NavBar() {
   };
   return (
     <div>
-      <header className="px-12 pb-4 pt-8 text-white ">
-        <nav className="hidden md:flex items-center justify-between">
-          <img src="/images/logo.png" width="85" alt="logo" />
+      <header className="px-4 md:px-12 pb-4 pt-8 text-white ">
+        <nav className="flex items-center justify-between">
+          <Link to="/">
+            <img src="/images/logo.png" width="85" alt="logo" />
+          </Link>
           <ul className="hidden md:flex space-x-20 text-black">
             <li>
               <NavLink
@@ -61,7 +63,6 @@ function NavBar() {
             </li>
           </ul>
           <div className="flex">
-            {" "}
             {isLoggedIn ? (
               <div className="flex gap-4 justify-center items-center">
                 <NavLink to="/userprofile">
@@ -79,8 +80,8 @@ function NavBar() {
                 </button>
               </div>
             ) : (
-              <ul className="hidden md:flex space-x-10">
-                <li className="text-black border border-[#971B22] px-6 py-2 rounded-3xl hover:bg-[#971B22] hover:text-white transition duration-300">
+              <ul className="flex space-x-1 md:space-x-10">
+                <li className="text-[#971B22] border-2 border-[#971B22] px-4 md:px-6 py-2 rounded-3xl hover:bg-[#971B22] hover:text-white transition duration-300">
                   <NavLink
                     to="/login"
                     onClick={() => handleLinkClick("Login")}
@@ -89,11 +90,11 @@ function NavBar() {
                     Log in
                   </NavLink>
                 </li>
-                <li className="bg-red-800 px-4 py-2 rounded-3xl hover:bg-white hover:border-[1px] hover:border-[#971b22] hover:text-[#971B22] transition duration-300">
+                <li className="bg-red-800 px-4 py-2 rounded-3xl hover:bg-white hover:border-[2px] hover:border-[#971b22] hover:text-[#971B22] transition duration-300">
                   <NavLink
                     to="/signup"
                     onClick={() => handleLinkClick("Sign up")}
-                    className={activeLink === "Sign up" ? "text-[#971B22]" : ""}
+                    className={activeLink === "Sign up" ? "" : ""}
                   >
                     Sign up
                   </NavLink>

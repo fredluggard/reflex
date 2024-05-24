@@ -17,7 +17,7 @@ function ResetPassword() {
     SetGetCode("two");
     try {
       const response = await axios.post(
-        "https://rxe-lphv.onrender.com/auth/forgetpassword",
+        "https://rxe-lphv.onrender.com/auth/forgotpassword",
         {
           email: email,
         }

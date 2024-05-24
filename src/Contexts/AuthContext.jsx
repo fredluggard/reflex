@@ -4,12 +4,10 @@ import defaultContacts from "../defaultContacts.json";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [activeLink, setActiveLink] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isVerified, setIsVerified] = useState(() => {
-    const savedState = localStorage.getItem("isVerified");
-    return savedState;
-  });
+  const [activeMap, setActiveMap] = useState("All");
+  const [activeLink, setActiveLink] = useState("Home");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
   const [contacts, setContacts] = useState(defaultContacts);
 
   useEffect(() => {
@@ -27,6 +25,8 @@ export const AuthProvider = ({ children }) => {
         setIsVerified,
         contacts,
         setContacts,
+        activeMap,
+        setActiveMap,
       }}
     >
       {children}

@@ -70,7 +70,7 @@ function AccountPreference() {
 
   return (
     <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
-      <nav className="hidden md:block">
+      <nav>
         <NavBar />
       </nav>
 

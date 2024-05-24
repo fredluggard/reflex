@@ -24,9 +24,9 @@ import EmergencyContact from "./components/EmergencyContact";
 import SubstanceAbuse from "./components/SubstanceAbuse";
 import ConfirmReset from "./pages/ConfirmReset";
 import EmergencyContactsForm from "./components/EmergencyContactsForm";
-import ProfilePage from "./pages/ProfilePage";
 import Web3registration from "./components/web3registration";
 import EmergencyContacts from "./pages/EmergencyContacts";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const router = createBrowserRouter([
   {
@@ -61,10 +61,6 @@ const router = createBrowserRouter([
   },
   {
     path: "/userprofile",
-    element: <ProfilePage />,
-  },
-  {
-    path: "/accountpreference",
     element: <AccountPreference />,
   },
   {
@@ -130,3 +126,5 @@ root.render(
     </AuthProvider>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
