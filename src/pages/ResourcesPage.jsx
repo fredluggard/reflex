@@ -21,7 +21,7 @@ function ResourcesPage() {
       </div>
 
       <div className="quick-tips grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
-        <Link>
+        <Link to="/firstaid">
           <div className="flex flex-col items-center hover:opacity-70">
             <img src={firstAid} alt="First Aid" className="w-full h-auto" />
             <p className="firstaid-tips text-center mt-2 mx-10 flex items-start">
@@ -29,7 +29,7 @@ function ResourcesPage() {
             </p>
           </div>
         </Link>
-        <Link>
+        <Link to="/firesafety">
           <div className="flex flex-col items-center hover:opacity-70">
             <img
               src={fireExtinguisher}
@@ -39,7 +39,7 @@ function ResourcesPage() {
             <p className="fire-tips text-center mt-2 mx-10">Fire safety</p>
           </div>
         </Link>
-        <Link>
+        <Link to="/roadsafetytips">
           <div className="flex flex-col items-center hover:opacity-70">
             <img src={driver} alt="Driver" className="w-full h-auto" />
             <p className="driver-tips text-center mt-2">Road & driver safety</p>
