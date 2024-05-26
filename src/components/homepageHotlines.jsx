@@ -29,7 +29,7 @@ function HomepageHotlines() {
             <span className="w-24 text-sm">Fire Service</span>
           </a>
           <a
-            href={widthSize >= 768 ? "#" : "+2348032003702"}
+            href={widthSize >= 768 ? "#" : "tel:+2348032003702"}
             className="flex flex-col flex-wrap justify-center items-center text-center  "
           >
             <div className="border-2 border-[#DC1D2DE6] rounded-full h-20 w-20 flex justify-center items-center">

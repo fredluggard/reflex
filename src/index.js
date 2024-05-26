@@ -19,14 +19,17 @@ import FireService from "./pages/FireService";
 import PoliceMap from "./pages/PoliceMap";
 import FrscMap from "./pages/FrscMap";
 import EmergencyHotlinesPage from "./pages/EmergencyHotlinesPage";
-import DomesticViolence from "./components/DomesticViolence";
-import EmergencyContact from "./components/EmergencyContact";
-import SubstanceAbuse from "./components/SubstanceAbuse";
+import DomesticViolence from "./pages/DomesticViolence";
+import EmergencyContact from "./pages/EmergencyContact";
+import SubstanceAbuse from "./pages/SubstanceAbuse";
 import ConfirmReset from "./pages/ConfirmReset";
 import EmergencyContactsForm from "./components/EmergencyContactsForm";
 import Web3registration from "./components/web3registration";
 import EmergencyContacts from "./pages/EmergencyContacts";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import FirstAid from "./pages/FirstAid";
+import FireSafety from "./pages/FireSafety";
+import RoadAndDriverSafety from "./pages/RoadAndDriverSafety";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +110,18 @@ const router = createBrowserRouter([
   {
     path: "/substance-abuse",
     element: <SubstanceAbuse />,
+  },
+  {
+    path: "/firstaid",
+    element: <FirstAid />,
+  },
+  {
+    path: "/firesafety",
+    element: <FireSafety />,
+  },
+  {
+    path: "/roadsafetytips",
+    element: <RoadAndDriverSafety />,
   },
   {
     path: "/contactform",

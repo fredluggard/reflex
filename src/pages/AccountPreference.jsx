@@ -4,20 +4,15 @@ import Settings from "../components/Settings";
 import { FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useAuth } from "../Contexts/AuthContext";
 
 function AccountPreference() {
-  const initialFormState = {
-    firstname: "",
-    lastname: "",
-    location: "",
-  };
-
-  const [userData, setUserData] = useState(initialFormState);
+  const { initialFormState, userData, setUserData } = useAuth();
   const [token, setToken] = useState("");
 
-  // Fetch the token from local storage or context when the component mounts
+  // Fetch the token from local storage when the component mounts
   useEffect(() => {
-    const storedToken = localStorage.getItem("token"); // Adjust the key as per your storage setup
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
@@ -25,36 +20,36 @@ function AccountPreference() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUserData({
-      ...userData,
+    setUserData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
   const updateProfile = async (userData) => {
-    try {
-      const response = await axios.put(
-        "https://es-be-10-2.onrender.com/api/user/profile",
-        userData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the header
-          },
-        }
-      );
-      console.log("Profile updated successfully:", response.data);
-      return response.data;
-    } catch (error) {
-      console.error(
-        "Failed to update profile:",
-        error.response?.data || error.message
-      );
-      throw error;
-    }
+    // try {
+    //   const response = await axios.put(
+    //     "https://es-be-10-2.onrender.com/api/user/profile",
+    //     userData,
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     }
+    //   );
+    //   console.log("Profile updated successfully:", response.data);
+    //   return response.data;
+    // } catch (error) {
+    //   console.error(
+    //     "Failed to update profile:",
+    //     error.response?.data || error.message
+    //   );
+    //   throw error;
+    // }
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
     try {
       const updatedProfile = await updateProfile(userData);
       console.log("Profile updated successfully:", updatedProfile);
@@ -65,14 +60,12 @@ function AccountPreference() {
   };
 
   const handleCancel = () => {
-    setUserData(initialFormState); // Reset the form to its initial state
+    setUserData(initialFormState);
   };
 
   return (
     <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
-      <nav>
-        <NavBar />
-      </nav>
+      <NavBar />
 
       <div className="flex flex-col-reverse w-[98%] md:flex-row justify-evenly md:mx-4 md:my-8 text-lg md:text-base">
         <Settings />
@@ -145,11 +138,12 @@ function AccountPreference() {
               </div>
             </div>
             <div className="flex w-[100%] justify-evenly mb-8">
-              <button type="button" className="md:hidden">
-                <FaCircleXmark
-                  onClick={handleCancel}
-                  className="w-10 h-10 cursor-pointer"
-                />
+              <button
+                type="button"
+                className="md:hidden"
+                onClick={handleCancel}
+              >
+                <FaCircleXmark className="w-10 h-10 cursor-pointer" />
               </button>
 
               <button

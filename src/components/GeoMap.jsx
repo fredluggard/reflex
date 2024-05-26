@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 
 function GeoMap(props) {
+  const widthSize = window.innerWidth;
   let defaultIcon = L.icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/727/727606.png",
     iconSize: [40, 40],
@@ -130,7 +131,12 @@ function GeoMap(props) {
             props.ambulanceMarkers.map((marker) => (
               <Marker position={marker.geocode} icon={ambulanceIcon}>
                 <Popup>
-                  <p className="font-bold">{marker.popUp}</p>
+                  <div className="flex flex-col ">
+                    <p className="font-bold">{marker.popUp}</p>
+                    <Link to={widthSize >= 768 ? "#" : "tel:+234067157635"}>
+                      Contact: +234067157635
+                    </Link>
+                  </div>
                 </Popup>
               </Marker>
             ))}
@@ -140,7 +146,12 @@ function GeoMap(props) {
             props.policeMarkers.map((marker) => (
               <Marker position={marker.geocode} icon={policeIcon}>
                 <Popup>
-                  <p className="font-bold">{marker.popUp}</p>
+                  <div className="flex flex-col ">
+                    <p className="font-bold">{marker.popUp}</p>
+                    <Link to={widthSize >= 768 ? "#" : "tel:+2347065409291"}>
+                      Contact: +2347065409291
+                    </Link>
+                  </div>
                 </Popup>
               </Marker>
             ))}
@@ -150,7 +161,12 @@ function GeoMap(props) {
             props.roadSafetyMarkers.map((marker) => (
               <Marker position={marker.geocode} icon={roadSafetyIcon}>
                 <Popup>
-                  <p className="font-bold">{marker.popUp}</p>
+                  <div className="flex flex-col ">
+                    <p className="font-bold">{marker.popUp}</p>
+                    <Link to={widthSize >= 768 ? "#" : "tel:+122"}>
+                      Contact: 122
+                    </Link>
+                  </div>
                 </Popup>
               </Marker>
             ))}
@@ -160,7 +176,12 @@ function GeoMap(props) {
             props.fireServiceMarkers.map((marker) => (
               <Marker position={marker.geocode} icon={fireServiceIcon}>
                 <Popup>
-                  <p className="font-bold">{marker.popUp}</p>
+                  <div className="flex flex-col ">
+                    <p className="font-bold">{marker.popUp}</p>
+                    <Link to={widthSize >= 768 ? "#" : "tel:+2347065409291"}>
+                      Contact: +2347065409291
+                    </Link>
+                  </div>
                 </Popup>
               </Marker>
             ))}

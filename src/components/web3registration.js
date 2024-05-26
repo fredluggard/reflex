@@ -17,16 +17,21 @@ function Web3registration() {
 
   const connectWallet = async () => {
     if (window.ethereum) {
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      await provider.send("eth_requestAccounts", []);
-      const signer = await provider.getSigner();
-      const address = await signer.getAddress();
-      setProvider(provider);
-      setSigner(signer);
-      setWalletAddress(address);
-      console.log(provider);
-      console.log(signer);
-      console.log(address);
+      try {
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+        const signer = await provider.getSigner();
+        const address = await signer.getAddress();
+        setProvider(provider);
+        setSigner(signer);
+        setWalletAddress(address);
+      } catch (error) {
+        if (error.code === 4001) {
+          setError("User rejected the request to connect with your wallet");
+        } else {
+          setError("Something went wrong!");
+        }
+      }
     } else {
       alert("Please install MetaMask!");
     }
@@ -57,6 +62,11 @@ function Web3registration() {
         console.log("User registered:", tx);
         history("/");
       } catch (error) {
+        if (error.code === 4001) {
+          setError("You failed to register, try again");
+        } else {
+          setError("You failed to register, try again");
+        }
         console.error("Error registering user:", error);
       }
     } else {

@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCog, FaUserAlt, FaInfoCircle, FaSignOutAlt } from "react-icons/fa";
 import axios from "axios";
 import { useAuth } from "../Contexts/AuthContext";
 
 function Settings() {
-  const [activeOption, setActiveOption] = useState("Accountpreference");
-
   const handleOptionClick = (link) => {
     setActiveOption(link);
   };
 
   const navigate = useNavigate();
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, activeOption, setActiveOption } = useAuth();
 
   const handleLogout = async () => {
     try {
