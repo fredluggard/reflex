@@ -1,14 +1,19 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import motherChild from "../images/quickTips/motherChild.png";
-import { Link } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
+import Dropdown from "../components/DropDown";
+import { useAuth } from "../Contexts/AuthContext";
 
 function DomesticViolence() {
+  const { selectedOption, setSelectedOption, options } = useAuth();
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
   return (
     <div className="relative h-full bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
-      <nav className="hidden md:block">
+      <nav>
         <NavBar />
       </nav>
 
@@ -29,19 +34,12 @@ function DomesticViolence() {
 
         <div className="mt-10 md:mt-0 md:w-1/2 md:pl-10">
           <div className="flex flex-col md:flex-row md:items-center gap-2 mb-5">
-            <p className="text-sm text-gray-700">See relevant information on</p>
-            <Link
-              to="#"
-              className="flex items-center px-2 text-sm w-full md:w-auto h-7 gap-3 border border-red-500 rounded-full"
-            >
-              <img
-                src={motherChild}
-                className="rounded-full w-5 h-5"
-                alt="Domestic Violence"
-              />
-              <p>Domestic Violence</p>
-              <FaChevronDown size={"10px"} className="text-red-500" />
-            </Link>
+            <Dropdown
+              label="See relevant information on"
+              options={options}
+              selectedOption={selectedOption}
+              onOptionSelect={handleOptionSelect}
+            />
           </div>
 
           <h3 className="font-medium text-xl text-gray-900 mb-3">

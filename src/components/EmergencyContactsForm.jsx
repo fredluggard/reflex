@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 
-function EmergencyContactsForm({ onNewContact }) {
+function EmergencyContactsForm() {
+  const { handleNewContact } = useAuth();
   const [name, setName] = useState("");
   const [relationship, setRelationship] = useState("");
   const [phone, setPhone] = useState("");
-  const [picture, setPicture] = useState("");
-  const history = useNavigate();
+  const [picture, setPicture] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +19,20 @@ function EmergencyContactsForm({ onNewContact }) {
       phone,
       picture,
     };
-    onNewContact(newContact);
+    handleNewContact(newContact);
     setName("");
     setRelationship("");
     setPhone("");
-    setPicture("");
-    history("/"); // Navigate back to the main contacts page
+    navigate("/emergencycontacts");
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPicture(URL.createObjectURL(file));
+    } else {
+      setPicture(null);
+    }
   };
 
   return (
@@ -64,12 +74,12 @@ function EmergencyContactsForm({ onNewContact }) {
         />
       </div>
       <div>
-        <label>Picture URL</label>
+        <label htmlFor="picture">Contact Picture</label>
         <input
-          type="image"
-          alt="Add a picture"
-          value={picture}
-          onChange={(e) => setPicture(e.target.value)}
+          type="file"
+          id="picture"
+          name="picture"
+          onChange={handleFileChange}
           className="border p-1"
           required
         />

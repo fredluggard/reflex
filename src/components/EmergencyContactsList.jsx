@@ -41,7 +41,7 @@ function EmergencyContactsList() {
                     <p>{contact.relationship}</p>
                   </div>
                 </div>
-                <div className="">
+                <div className="flex">
                   <button
                     onClick={() => handleCall(contact.phone)}
                     className="btn btn-primary mr-2"
