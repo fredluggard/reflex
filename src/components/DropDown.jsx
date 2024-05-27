@@ -53,7 +53,9 @@ const Dropdown = ({ options, selectedOption, onOptionSelect, label }) => {
 
   return (
     <div className="flex items-center space-x-2">
-      <span>{label}</span>
+      <span className="text-[13px] w-[100px] md:w-[200px] md:text-md">
+        {label}
+      </span>
       <div className="relative">
         <button
           className="flex items-center border border-red-600 rounded-full px-4 py-2 focus:outline-none"
@@ -69,7 +71,7 @@ const Dropdown = ({ options, selectedOption, onOptionSelect, label }) => {
           <FaChevronDown className="ml-2 text-[#971B22]" />
         </button>
         {isOpen && (
-          <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
+          <ul className="absolute text-[13px] md:text-md right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
             {options.map((option, index) => (
               <li
                 key={index}

@@ -8,14 +8,13 @@ import NavBar from "../components/NavBar";
 import BackTick from "../components/BackTick";
 import Footer from "../components/Footer";
 
-const defaultUser = {
-  name: "Not Available",
-  bloodtype: "Not Available",
-  genotype: "Not Available",
-};
-
 function EmergencyContacts() {
-  const { contacts } = useAuth();
+  const { contacts, userData } = useAuth();
+  const defaultUser = {
+    name: userData.fullName,
+    bloodtype: "Not Available",
+    genotype: "Not Available",
+  };
   const [user, setUser] = useState(defaultUser);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

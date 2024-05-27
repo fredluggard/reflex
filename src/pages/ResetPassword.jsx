@@ -22,9 +22,9 @@ function ResetPassword() {
           email: email,
         }
       );
-      console.log("Code sent Successfully:", response.data);
+      console.log("Link sent Successfully:", response.data);
     } catch (error) {
-      console.error("Code not sent:", error.message);
+      console.error("Link not sent:", error.message);
     }
   };
 

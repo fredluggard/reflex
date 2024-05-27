@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Settings from "../components/Settings";
 import { FaCircleXmark, FaCircleCheck } from "react-icons/fa6";
 import NavBar from "../components/NavBar";
@@ -7,51 +6,26 @@ import Footer from "../components/Footer";
 import { useAuth } from "../Contexts/AuthContext";
 
 function AccountPreference() {
-  const { initialFormState, userData, setUserData } = useAuth();
-  const [token, setToken] = useState("");
+  const {
+    userData,
+    setUserData,
+    setLastName,
+    setLocation,
+    setFirstName,
+    setFullName,
+  } = useAuth();
 
-  // Fetch the token from local storage when the component mounts
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const updateProfile = (userData) => {
+    setFirstName(userData.firstName);
+    setLastName(userData.lastName);
+    setLocation(userData.location);
+    setFullName(userData.fullName);
   };
 
-  const updateProfile = async (userData) => {
-    // try {
-    //   const response = await axios.put(
-    //     "https://es-be-10-2.onrender.com/api/user/profile",
-    //     userData,
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     }
-    //   );
-    //   console.log("Profile updated successfully:", response.data);
-    //   return response.data;
-    // } catch (error) {
-    //   console.error(
-    //     "Failed to update profile:",
-    //     error.response?.data || error.message
-    //   );
-    //   throw error;
-    // }
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const updatedProfile = await updateProfile(userData);
+      const updatedProfile = updateProfile(userData);
       console.log("Profile updated successfully:", updatedProfile);
       alert("Profile updated successfully");
     } catch (error) {
@@ -60,7 +34,7 @@ function AccountPreference() {
   };
 
   const handleCancel = () => {
-    setUserData(initialFormState);
+    setUserData();
   };
 
   return (
@@ -71,11 +45,13 @@ function AccountPreference() {
         <Settings />
         <div className="md:bg-[#F5F5F5] rounded md:pt-24 md:pb-72 px-4 md:w-[70%]">
           <div className="flex w-[100%] justify-center md:justify-start items-center gap-4 mb-12">
-            <img
-              src="/images/profile-pic.png"
-              alt="User profile"
-              className="w-[15%] rounded-full"
-            />
+            <div className="flex justify-center items-center rounded-full border-2 border-black w-[150px] h-[150px]">
+              <img
+                src="/images/user-profile-pic.png"
+                alt="User profile"
+                className="w-[120px] h-[130x] rounded-full"
+              />
+            </div>
             <div className="font-light">
               <div className="flex space-x-2 bg-white px-4 py-2 rounded-xl cursor-pointer mb-2">
                 <img src="/images/gallery.png" alt="Change" />
@@ -97,8 +73,10 @@ function AccountPreference() {
               name="firstname"
               id="firstname"
               placeholder="Narzarh"
-              value={userData.firstname}
-              onChange={handleChange}
+              value={userData.firstName}
+              onChange={(e) =>
+                setUserData({ ...userData, firstName: e.target.value })
+              }
               required
             />
             <div className="mb-2">
@@ -110,8 +88,10 @@ function AccountPreference() {
               name="lastname"
               id="lastname"
               placeholder="Okafor"
-              value={userData.lastname}
-              onChange={handleChange}
+              value={userData.lastName}
+              onChange={(e) =>
+                setUserData({ ...userData, lastName: e.target.value })
+              }
               required
             />
             <div className="mb-2">
@@ -132,7 +112,9 @@ function AccountPreference() {
                   id="location"
                   placeholder="Independence layout, Enugu."
                   value={userData.location}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    setUserData({ ...userData, location: e.target.value })
+                  }
                   required
                 />
               </div>

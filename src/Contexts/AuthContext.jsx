@@ -6,15 +6,14 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [activeMap, setActiveMap] = useState("All");
   const [activeLink, setActiveLink] = useState("Home");
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // Initialize isLoggedIn from localStorage
+  const storedIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const [isLoggedIn, setIsLoggedIn] = useState(storedIsLoggedIn);
   const [isVerified, setIsVerified] = useState(false);
   const [activeOption, setActiveOption] = useState("Accountpreference");
   const [contacts, setContacts] = useState(defaultContacts);
-  const initialFormState = {
-    firstname: "",
-    lastname: "",
-    location: "",
-  };
+
   const handleNewContact = (newContact) => {
     setContacts([...contacts, newContact]);
   };
@@ -29,14 +28,51 @@ export const AuthProvider = ({ children }) => {
   ];
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
-  const [userData, setUserData] = useState(initialFormState);
+  // Retrieve userName from localStorage and split into first and last name
+  const userName = localStorage.getItem("userName") || "";
+  const nameParts = userName.trim() ? userName.trim().split(" ") : ["", ""];
+  const initialFirstname = nameParts[0];
+  const initialLastname = nameParts.slice(1).join(" ");
+  const [firstName, setFirstName] = useState(initialFirstname);
+  const [lastName, setLastName] = useState(initialLastname);
+  const [location, setLocation] = useState("");
+
+  const [userData, setUserData] = useState({
+    firstName: initialFirstname,
+    lastName: initialLastname,
+    fullName: `${initialFirstname} ${initialLastname}`,
+    location,
+  });
+
+  // Save isLoggedIn to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("isLoggedIn", isLoggedIn);
+  }, [isLoggedIn]);
+
   useEffect(() => {
     localStorage.setItem("isVerified", isVerified);
   }, [isVerified]);
 
+  useEffect(() => {
+    setUserData({
+      firstName,
+      lastName,
+      fullName: `${firstName} ${lastName}`,
+      location,
+    });
+  }, [firstName, lastName, location]);
+
   return (
     <AuthContext.Provider
       value={{
+        userData,
+        firstName,
+        lastName,
+        location,
+        setUserData,
+        setLastName,
+        setLocation,
+        setFirstName,
         activeLink,
         setActiveLink,
         isLoggedIn,
@@ -47,9 +83,6 @@ export const AuthProvider = ({ children }) => {
         setContacts,
         activeMap,
         setActiveMap,
-        userData,
-        setUserData,
-        initialFormState,
         activeOption,
         setActiveOption,
         handleNewContact,

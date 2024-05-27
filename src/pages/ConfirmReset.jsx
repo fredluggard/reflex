@@ -54,7 +54,7 @@ function ConfirmReset() {
     SetGetCode("two");
     try {
       const response = await axios.post(
-        `https://rxe-lphv.onrender.com/auth/resetpassword/:`,
+        `https://rxe-lphv.onrender.com/auth/resetpassword/:token`,
         {
           password: password,
           password2: password2,

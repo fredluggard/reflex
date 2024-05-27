@@ -65,14 +65,16 @@ function NavBar() {
           <div className="flex">
             {isLoggedIn ? (
               <div className="flex gap-4 justify-center items-center">
-                <NavLink to="/userprofile">
-                  <img
-                    src="/images/user-profile-pic.png"
-                    width="30"
-                    alt="user-profile-pic"
-                    className="flex self-end"
-                  />
-                </NavLink>
+                <div className="flex justify-center items-center rounded-full border-2 border-black w-12 h-12">
+                  <NavLink className="-top-10" to="/userprofile">
+                    <img
+                      src="/images/user-profile-pic.png"
+                      width="30"
+                      alt="user-profile-pic"
+                      className="flex self-end"
+                    />
+                  </NavLink>
+                </div>
                 <button className="bg-red-800 px-4 py-2 rounded-3xl border-[1px] border-[#971B22] hover:bg-white hover:border-[1px] hover:border-[#971b22] hover:text-[#971B22]">
                   <NavLink to="/wallet" className="">
                     {isVerified ? "Verified" : "Verify User"}
