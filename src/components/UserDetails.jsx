@@ -6,7 +6,7 @@ function UserDetails({ user }) {
     <main className="flex justify-between w-full text-gray-500">
       <section className="flex flex-col w-[50%] md:w-[25%] items-center pt-4">
         <img
-          src="/images/profile-pic.png"
+          src="/images/user-profile-pic.png"
           alt="User profile"
           className="w-[60%] rounded-full"
         />
