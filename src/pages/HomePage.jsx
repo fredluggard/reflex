@@ -40,18 +40,18 @@ function HomePage() {
   }, [location]);
 
   return (
-    <div className="flex flex-col justify-between relative h-screen">
-      <div className="flex flex-col justify-between relative h-screen bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
+    <div className="flex flex-col justify-between relative h-full">
+      <div className="flex flex-col  justify-between relative h-auto bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
         <nav>
           <NavBar />
         </nav>
 
         <div className="flex flex-col justify-center">
-          <div className="md:hidden px-2">
+          <div className="md:hidden my-2 px-2">
             <SearchBar />
           </div>
 
-          <div className="md:hidden my-3 px-2">
+          <div className="md:hidden my-5 px-2">
             <HomepageHotlines />
           </div>
 
@@ -283,7 +283,7 @@ function HomePage() {
           </div>
 
           <div className="md:hidden">
-            <h1 className="text-center text-xl font-semibold text-[#971B22]">
+            <h1 className="text-center my-4 text-2xl font-semibold text-[#971B22]">
               Live Tracking
             </h1>
             <div className="flex h-[250px] w-screen gap-2 justify-evenly items-center">
@@ -318,7 +318,7 @@ function HomePage() {
           <Footer />
         </div>
       </div>
-      <div className="md:hidden">
+      <div className="md:hidden my-3">
         <MainMenu />
       </div>
     </div>
