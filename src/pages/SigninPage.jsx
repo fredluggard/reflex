@@ -30,10 +30,13 @@ function SigninPage() {
           email: email,
           password: password,
         }
+        // response.data.user.name
       );
       console.log("Login Successful:", response.data);
       setIsLoggedIn(true);
       history("/");
+      const name = response.data.data.user.name;
+      localStorage.setItem("userName", name);
     } catch (error) {
       console.error("Login failed:", error.message);
     }

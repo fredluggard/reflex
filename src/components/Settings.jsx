@@ -20,6 +20,7 @@ function Settings() {
       console.log("You've been logged out", response.data);
       setIsLoggedIn(false);
       navigate("/");
+      localStorage.removeItem("userName");
     } catch (error) {
       console.error("Failed to log out:", error.message);
       throw error;
