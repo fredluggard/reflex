@@ -40,7 +40,7 @@ function HomePage() {
   }, [location]);
 
   return (
-    <div className="flex flex-col justify-between relative h-[90%] md:h-full">
+    <div className="flex flex-col justify-between relative h-[80%] md:h-full">
       <div className="flex flex-col  justify-evenly relative h-auto bg-mobile-bg md:bg-desktop-bg bg-cover bg-center">
         <nav>
           <NavBar />
