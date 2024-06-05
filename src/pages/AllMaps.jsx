@@ -13,7 +13,7 @@ function AllMaps() {
   //   const userLocation = useGeoLocation();
   //   userLocation.coordinates.lat, userLocation.coordinates.lng
   const location = [6.4483, 7.5139];
-  const zoom = 12;
+  const zoom = 15;
 
   return (
     <div className="bg-mobile-bg md:bg-desktop-bg">
