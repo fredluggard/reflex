@@ -122,9 +122,9 @@ function GeoMap(props) {
         <MapContainer center={props.location} zoom={props.zoom}>
           <TileLayer
             attribution=""
-            url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}@2x.png?key=l2IUqASnkZluj7UFjpyh"
+            url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" />
+          {/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg" /> */}
 
           {/* Ambulance Services */}
           {props.ambulanceMarkers &&
